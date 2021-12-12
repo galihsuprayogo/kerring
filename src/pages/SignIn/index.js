@@ -46,6 +46,49 @@ const SignIn = ({ navigation }) => {
     };
   }, []);
 
+  const onContinue = () => {
+    if (form.email !== '' && form.password !== '') {
+      const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w\w+)+$/;
+      if (form.password.length !== 6) {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message="Password lest than 6 character" />
+          ),
+        });
+      } else if (reg.test(form.email) === false) {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message="Email format invalid" />
+          ),
+        });
+      } else {
+        console.log(form.email, form.password);
+        setForm('reset');
+      }
+      if (form.password.length !== 6 && reg.test(form.email) === false) {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message="Email and password invalid" />
+          ),
+        });
+      }
+    } else {
+      toast.show({
+        placement: 'top',
+        duration: 2000,
+        render: () => (
+           <ShowError message="Field Empty" />
+        ),
+      });
+    }
+  };
+
   const onShowPassword = () => {
     setIsPassword(!isPassword);
   };
@@ -138,6 +181,7 @@ const SignIn = ({ navigation }) => {
            borderRadius="6px"
            pressedColor="red.600"
            hoveredColor="red.600"
+           onPress={onContinue}
          />
       </VStack>
       <HStack
