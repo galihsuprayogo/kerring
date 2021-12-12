@@ -46,7 +46,7 @@ const Splash = ({ navigation }) => {
      space={heightDynamic * 0.001}
      alignItems="flex-start"
      bg="red.600"
-     py="1"
+     py="2"
      px="4"
      borderRadius="xs"
    >
