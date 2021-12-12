@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Platform, Keyboard } from 'react-native';
+import { useDispatch } from 'react-redux';
 import {
   Box,
   VStack,
@@ -15,6 +16,9 @@ import {
   Loading
 } from '../../components';
 import {
+  globalAction
+} from '../../redux';
+import {
   globalResolution,
   ShowError,
   ShowSuccess,
@@ -23,6 +27,7 @@ import {
 
 const SignIn = ({ navigation }) => {
   const toast = useToast();
+  const dispatch = useDispatch();
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
   const [message, setMessage] = useState('');
@@ -30,7 +35,6 @@ const SignIn = ({ navigation }) => {
   const [isPassword, setIsPassword] = useState(false);
   const [isVisibleIcon, setIsVisibleIcon] = useState(false);
   const [isVisibleKeyboard, setIsVisibleKeyboard] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let keyboardEventListeners;
@@ -68,11 +72,11 @@ const SignIn = ({ navigation }) => {
           ),
         });
       } else {
-        setIsLoading(true);
+        dispatch({ type: globalAction.SET_LOADING, value: true });
         const res = setTimeout(() => {
           console.log(form.email, form.password);
           setForm('reset');
-          setIsLoading(false);
+          dispatch({ type: globalAction.SET_LOADING, value: false });
         }, 3000);
         return () => clearTimeout(res);
       }
@@ -119,7 +123,6 @@ const SignIn = ({ navigation }) => {
      justifyContent="center"
      space={heightReso * 0.035}
    >
-    {isLoading && (<Loading />)}
     <VStack
       alignItems="center"
       justifyContent="center"
@@ -204,7 +207,7 @@ const SignIn = ({ navigation }) => {
          fontWeight={100}
          letterSpacing="sm"
        >
-        Dont have an account?
+        Don&rsquo;t have an account?
        </Text>
        <Pressable
          onPress={() => navigation.push('SignUp')}
@@ -218,7 +221,7 @@ const SignIn = ({ navigation }) => {
             fontWeight={300}
             letterSpacing="sm"
           >
-                Register here
+               Register here
           </Text>
          )}
        </Pressable>
