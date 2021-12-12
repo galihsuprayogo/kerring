@@ -25,7 +25,7 @@ const FormInput = ({
   {typeText === 'password' ? (
    <Input
      bg="white"
-     borderRadius="10px"
+     borderRadius="6px"
      height={height}
      value={value}
      fontSize={fontSize}
@@ -70,7 +70,7 @@ const FormInput = ({
   ) : (
      <Input
        bg="white"
-       borderRadius="10px"
+       borderRadius="6px"
        alignItems="center"
        justifyContent="center"
        textAlignVertical="center"

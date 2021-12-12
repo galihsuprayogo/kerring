@@ -155,7 +155,7 @@ const SignIn = ({ navigation }) => {
         Dont have an account?
        </Text>
        <Pressable
-         onPress={() => {}}
+         onPress={() => navigation.push('SignUp')}
        >
          {({ isHovered, isFocused, isPressed }) => (
           <Text
