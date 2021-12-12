@@ -5,7 +5,6 @@ import {
   PresenceTransition,
   Text
 } from 'native-base';
-import { splashImage } from '../../assets';
 import { globalResolution } from '../../utils';
 
 const Splash = ({ navigation }) => {
@@ -48,8 +47,8 @@ const Splash = ({ navigation }) => {
      alignItems="flex-start"
      bg="red.600"
      py="1"
-     px="2"
-     borderRadius="md"
+     px="4"
+     borderRadius="xs"
    >
      <Text
        color="custom.100"
@@ -63,12 +62,12 @@ const Splash = ({ navigation }) => {
      </Text>
      <Text
        color="custom.100"
-       fontSize={heightDynamic * 0.028}
+       fontSize={heightDynamic * 0.018}
        fontFamily="body"
        fontWeight={100}
        letterSpacing="xs"
      >
-        magazine
+        music magazine
      </Text>
    </VStack>
   </PresenceTransition>
