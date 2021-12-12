@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   GetStarted,
+  Home,
   SignIn,
   SignUp,
   Splash
@@ -19,6 +20,11 @@ const Router = () => (
   <Stack.Screen
     name="GetStarted"
     component={GetStarted}
+    options={{ headerShown: false }}
+  />
+  <Stack.Screen
+    name="Home"
+    component={Home}
     options={{ headerShown: false }}
   />
   <Stack.Screen

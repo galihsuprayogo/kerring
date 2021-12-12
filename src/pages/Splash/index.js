@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import {
-  VStack,
-  Image,
   PresenceTransition,
-  Text
+  VStack,
 } from 'native-base';
 import { IconGlobal } from '../../components';
+import { getAsyncData } from '../../services';
 import { globalResolution } from '../../utils';
 
 const Splash = ({ navigation }) => {
@@ -14,7 +13,12 @@ const Splash = ({ navigation }) => {
 
   useEffect(() => {
     const unmount = setTimeout(async () => {
-      navigation.replace('GetStarted');
+      const res = await getAsyncData('user_session');
+      if (res === undefined) {
+        navigation.replace('GetStarted');
+      } else {
+        navigation.replace('Home');
+      }
     }, 2600);
     return () => clearTimeout(unmount);
   }, []);

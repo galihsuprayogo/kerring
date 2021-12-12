@@ -18,6 +18,7 @@ import {
 import {
   globalAction
 } from '../../redux';
+import { storeAsyncData } from '../../services';
 import {
   globalResolution,
   ShowError,
@@ -73,10 +74,22 @@ const SignIn = ({ navigation }) => {
         });
       } else {
         dispatch({ type: globalAction.SET_LOADING, value: true });
+        const data = {
+          email: form.email,
+          password: form.password
+        };
         const res = setTimeout(() => {
-          console.log(form.email, form.password);
+          storeAsyncData('user_session', data);
+          navigation.replace('Home');
           setForm('reset');
           dispatch({ type: globalAction.SET_LOADING, value: false });
+          toast.show({
+            placement: 'top',
+            duration: 2000,
+            render: () => (
+               <ShowSuccess message="Login Successfully" />
+            ),
+          });
         }, 3000);
         return () => clearTimeout(res);
       }
@@ -227,7 +240,6 @@ const SignIn = ({ navigation }) => {
        </Pressable>
       </HStack>
     </VStack>
-
    </VStack>
   );
 };
