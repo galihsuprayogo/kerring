@@ -5,11 +5,12 @@ import {
   PresenceTransition,
   Text
 } from 'native-base';
+import { IconGlobal } from '../../components';
 import { globalResolution } from '../../utils';
 
 const Splash = ({ navigation }) => {
-  const heightDynamic = globalResolution().height;
-  const widthDynamic = globalResolution().width;
+  const heightReso = globalResolution().height;
+  const widthReso = globalResolution().width;
 
   useEffect(() => {
     const unmount = setTimeout(async () => {
@@ -32,6 +33,7 @@ const Splash = ({ navigation }) => {
     initial={{
       opacity: 0,
       scale: 0.5,
+      rotate: '-25deg'
     }}
     animate={{
       opacity: 1,
@@ -39,36 +41,24 @@ const Splash = ({ navigation }) => {
       transition: {
         duration: 2000,
       },
+      rotate: '-25deg'
     }}
   >
    <VStack
      width="100%"
-     space={heightDynamic * 0.001}
-     alignItems="flex-start"
+     alignItems="center"
+     justifyContent="center"
      bg="red.600"
-     py="2"
      px="4"
-     borderRadius="xs"
+     py="2"
    >
-     <Text
-       color="custom.100"
-       fontSize={heightDynamic * 0.041}
-       fontFamily="body"
-       fontWeight={600}
-       letterSpacing="sm"
-       fontStyle="italic"
-     >
-        KERRING!
-     </Text>
-     <Text
-       color="custom.100"
-       fontSize={heightDynamic * 0.018}
-       fontFamily="body"
-       fontWeight={100}
-       letterSpacing="xs"
-     >
-        music magazine
-     </Text>
+      <IconGlobal
+        title="Auth"
+        width={widthReso * 0.557}
+        height={heightReso * 0.086}
+        resizeMode="contain"
+        alt="auth-login"
+      />
    </VStack>
   </PresenceTransition>
 </VStack>

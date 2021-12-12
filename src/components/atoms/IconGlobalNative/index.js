@@ -5,7 +5,9 @@ import {
   iconForward,
   iconForwardDark,
   iconNavigate,
-  iconNavigateDark
+  iconNavigateDark,
+  iconShowPassword,
+  iconHidePassword
 } from '../../../assets';
 
 const IconGlobalNative = ({
@@ -43,6 +45,24 @@ const IconGlobalNative = ({
       return (
         <Image
           source={iconNavigateDark}
+          height={height}
+          width={width}
+          resizeMode={resizeMode}
+        />
+      );
+    case 'show-password':
+      return (
+      <Image
+        source={iconShowPassword}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'hide-password':
+      return (
+        <Image
+          source={iconHidePassword}
           height={height}
           width={width}
           resizeMode={resizeMode}
