@@ -10,7 +10,16 @@ const GetStarted = () => (
   alignItems="center"
   justifyContent="center"
 >
-   <Text> Get Started Page</Text>
+   <Text
+     color="custom.100"
+     fontSize={40}
+     fontFamily="heading"
+     fontWeight={400}
+     letterSpacing="sm"
+     fontStyle="italic"
+   >
+        Get Started Page
+   </Text>
 </VStack>
 );
 

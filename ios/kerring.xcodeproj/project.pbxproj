@@ -14,6 +14,17 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3167637B7225057D27002B20 /* libPods-kerring-kerringTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB257013EAA4703E01BF401 /* libPods-kerring-kerringTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8A7B5A57F1B44A09AA694AB1 /* TTJenevers-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28335EF6191A47B8896D340B /* TTJenevers-BlackItalic.ttf */; };
+		998C0896128E447B864FF602 /* TTJenevers-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12255C74D0CF410EB7C963FA /* TTJenevers-Bold.ttf */; };
+		5C8D7F4F0950470589743222 /* TTJenevers-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E09E216CD3B049B9A1E08B3B /* TTJenevers-BoldItalic.ttf */; };
+		B3E0C1ADD2E9425AA138B838 /* TTJenevers-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6561863FB504ED594802BFD /* TTJenevers-ExtraBold.ttf */; };
+		E216ED4A815F44C793EC3FFE /* TTJenevers-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA5FFE41C7394B4A810F0D54 /* TTJenevers-ExtraBoldItalic.ttf */; };
+		3D83052CF3D845098C8381E1 /* TTJenevers-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9CF22E881B44D59855ED4BA /* TTJenevers-Italic.ttf */; };
+		7706334225AE4BFC80BD31C5 /* TTJenevers-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDFE2ED7273045219B3A9DEA /* TTJenevers-Light.ttf */; };
+		41F03D2813A1486A8851C195 /* TTJenevers-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7E505739744D0A9EFC5268 /* TTJenevers-LightItalic.ttf */; };
+		B4E55F5A37AC4D239BD32865 /* TTJenevers-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50B308B443164F23B8F9658A /* TTJenevers-Medium.ttf */; };
+		1DF21D7D09B149CAA75AE476 /* TTJenevers-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23AC449808FA44959631FFAB /* TTJenevers-MediumItalic.ttf */; };
+		7F1F33331AFF42009D2158DE /* TTJenevers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 531EF02D476C44C1A9EE3616 /* TTJenevers-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,17 @@
 		C6B955E4987E70AADC80A7D6 /* Pods-kerring-kerringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kerring-kerringTests.debug.xcconfig"; path = "Target Support Files/Pods-kerring-kerringTests/Pods-kerring-kerringTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9E9355A1C4A00D99BD629CB /* Pods-kerring-kerringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kerring-kerringTests.release.xcconfig"; path = "Target Support Files/Pods-kerring-kerringTests/Pods-kerring-kerringTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		28335EF6191A47B8896D340B /* TTJenevers-BlackItalic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-BlackItalic.ttf"; path = "../src/assets/fonts/TTJenevers-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		12255C74D0CF410EB7C963FA /* TTJenevers-Bold.ttf */ = {isa = PBXFileReference; name = "TTJenevers-Bold.ttf"; path = "../src/assets/fonts/TTJenevers-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E09E216CD3B049B9A1E08B3B /* TTJenevers-BoldItalic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-BoldItalic.ttf"; path = "../src/assets/fonts/TTJenevers-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E6561863FB504ED594802BFD /* TTJenevers-ExtraBold.ttf */ = {isa = PBXFileReference; name = "TTJenevers-ExtraBold.ttf"; path = "../src/assets/fonts/TTJenevers-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EA5FFE41C7394B4A810F0D54 /* TTJenevers-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/TTJenevers-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9CF22E881B44D59855ED4BA /* TTJenevers-Italic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-Italic.ttf"; path = "../src/assets/fonts/TTJenevers-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EDFE2ED7273045219B3A9DEA /* TTJenevers-Light.ttf */ = {isa = PBXFileReference; name = "TTJenevers-Light.ttf"; path = "../src/assets/fonts/TTJenevers-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0B7E505739744D0A9EFC5268 /* TTJenevers-LightItalic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-LightItalic.ttf"; path = "../src/assets/fonts/TTJenevers-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		50B308B443164F23B8F9658A /* TTJenevers-Medium.ttf */ = {isa = PBXFileReference; name = "TTJenevers-Medium.ttf"; path = "../src/assets/fonts/TTJenevers-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		23AC449808FA44959631FFAB /* TTJenevers-MediumItalic.ttf */ = {isa = PBXFileReference; name = "TTJenevers-MediumItalic.ttf"; path = "../src/assets/fonts/TTJenevers-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		531EF02D476C44C1A9EE3616 /* TTJenevers-Regular.ttf */ = {isa = PBXFileReference; name = "TTJenevers-Regular.ttf"; path = "../src/assets/fonts/TTJenevers-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +156,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4BD84C69DA6B1D6C8D9BD47E /* Pods */,
+				4839FD7BFC874E2187ADEA3B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +171,25 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		4839FD7BFC874E2187ADEA3B /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				28335EF6191A47B8896D340B /* TTJenevers-BlackItalic.ttf */,
+				12255C74D0CF410EB7C963FA /* TTJenevers-Bold.ttf */,
+				E09E216CD3B049B9A1E08B3B /* TTJenevers-BoldItalic.ttf */,
+				E6561863FB504ED594802BFD /* TTJenevers-ExtraBold.ttf */,
+				EA5FFE41C7394B4A810F0D54 /* TTJenevers-ExtraBoldItalic.ttf */,
+				F9CF22E881B44D59855ED4BA /* TTJenevers-Italic.ttf */,
+				EDFE2ED7273045219B3A9DEA /* TTJenevers-Light.ttf */,
+				0B7E505739744D0A9EFC5268 /* TTJenevers-LightItalic.ttf */,
+				50B308B443164F23B8F9658A /* TTJenevers-Medium.ttf */,
+				23AC449808FA44959631FFAB /* TTJenevers-MediumItalic.ttf */,
+				531EF02D476C44C1A9EE3616 /* TTJenevers-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +287,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8A7B5A57F1B44A09AA694AB1 /* TTJenevers-BlackItalic.ttf in Resources */,
+				998C0896128E447B864FF602 /* TTJenevers-Bold.ttf in Resources */,
+				5C8D7F4F0950470589743222 /* TTJenevers-BoldItalic.ttf in Resources */,
+				B3E0C1ADD2E9425AA138B838 /* TTJenevers-ExtraBold.ttf in Resources */,
+				E216ED4A815F44C793EC3FFE /* TTJenevers-ExtraBoldItalic.ttf in Resources */,
+				3D83052CF3D845098C8381E1 /* TTJenevers-Italic.ttf in Resources */,
+				7706334225AE4BFC80BD31C5 /* TTJenevers-Light.ttf in Resources */,
+				41F03D2813A1486A8851C195 /* TTJenevers-LightItalic.ttf in Resources */,
+				B4E55F5A37AC4D239BD32865 /* TTJenevers-Medium.ttf in Resources */,
+				1DF21D7D09B149CAA75AE476 /* TTJenevers-MediumItalic.ttf in Resources */,
+				7F1F33331AFF42009D2158DE /* TTJenevers-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

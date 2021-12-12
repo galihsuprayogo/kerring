@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,19 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TTJenevers-BlackItalic.ttf</string>
+		<string>TTJenevers-Bold.ttf</string>
+		<string>TTJenevers-BoldItalic.ttf</string>
+		<string>TTJenevers-ExtraBold.ttf</string>
+		<string>TTJenevers-ExtraBoldItalic.ttf</string>
+		<string>TTJenevers-Italic.ttf</string>
+		<string>TTJenevers-Light.ttf</string>
+		<string>TTJenevers-LightItalic.ttf</string>
+		<string>TTJenevers-Medium.ttf</string>
+		<string>TTJenevers-MediumItalic.ttf</string>
+		<string>TTJenevers-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

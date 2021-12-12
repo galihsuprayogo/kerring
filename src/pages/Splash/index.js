@@ -3,6 +3,7 @@ import {
   VStack,
   Image,
   PresenceTransition,
+  Text
 } from 'native-base';
 import { splashImage } from '../../assets';
 import { globalResolution } from '../../utils';
@@ -21,6 +22,8 @@ const Splash = ({ navigation }) => {
   return (
 <VStack
   flex={1}
+  width="100%"
+  height="100%"
   alignItems="center"
   justifyContent="center"
   bg="white"
@@ -35,17 +38,39 @@ const Splash = ({ navigation }) => {
       opacity: 1,
       scale: 1.2,
       transition: {
-        duration: 1500,
+        duration: 2000,
       },
     }}
   >
-   <Image
-     source={splashImage}
-     alt="logo"
-     width={widthDynamic * 0.6427}
-     height={heightDynamic * 0.2217}
-     resizeMode="contain"
-   />
+   <VStack
+     width="100%"
+     space={heightDynamic * 0.001}
+     alignItems="flex-start"
+     bg="red.600"
+     py="1"
+     px="2"
+     borderRadius="md"
+   >
+     <Text
+       color="custom.100"
+       fontSize={heightDynamic * 0.041}
+       fontFamily="body"
+       fontWeight={600}
+       letterSpacing="sm"
+       fontStyle="italic"
+     >
+        KERRING!
+     </Text>
+     <Text
+       color="custom.100"
+       fontSize={heightDynamic * 0.028}
+       fontFamily="body"
+       fontWeight={100}
+       letterSpacing="xs"
+     >
+        magazine
+     </Text>
+   </VStack>
   </PresenceTransition>
 </VStack>
   );
