@@ -25,7 +25,7 @@ const Splash = ({ navigation }) => {
   height="100%"
   alignItems="center"
   justifyContent="center"
-  bg="white"
+  bg="custom.900"
 >
   <PresenceTransition
     visible

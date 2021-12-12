@@ -16,6 +16,7 @@ const GetStarted = () => {
    <VStack
      flex={1}
      justifyContent="flex-start"
+     bg="custom.900"
    >
      <VStack
        width="100%"
@@ -81,7 +82,7 @@ const GetStarted = () => {
        >
          <Box>
             <Text
-              color="custom.900"
+              color="custom.100"
               fontSize={heightReso * 0.025}
               fontFamily="body"
               fontWeight={600}
@@ -91,7 +92,7 @@ const GetStarted = () => {
            Let&rsquo;s explore based on
             </Text>
             <Text
-              color="custom.900"
+              color="custom.100"
               fontSize={heightReso * 0.025}
               fontFamily="body"
               fontWeight={600}
@@ -101,7 +102,7 @@ const GetStarted = () => {
             your passion or music scene.
             </Text>
            <Text
-             color="custom.900"
+             color="custom.100"
              fontSize={heightReso * 0.014}
              fontFamily="body"
              fontWeight={400}
@@ -116,10 +117,11 @@ const GetStarted = () => {
          >
            <ButtonGlobal
              title="EXPLORE"
-             titleColor="white"
+             titleColor="custom.900"
+             titleColorPress="white"
              fontSize={heightReso * 0.0136}
              fontWeight={300}
-             nativeColor="custom.900"
+             nativeColor="custom.100"
              paddingX={widthReso * 0.072}
              paddingY={widthReso * 0.0235}
              width={widthReso * 0.342}
@@ -136,10 +138,11 @@ const GetStarted = () => {
            />
            <ButtonGlobal
              title="SIGN IN"
-             titleColor="white"
+             titleColor="custom.900"
+             titleColorPress="white"
              fontSize={heightReso * 0.0136}
              fontWeight={300}
-             nativeColor="custom.900"
+             nativeColor="custom.100"
              paddingX={widthReso * 0.072}
              paddingY={widthReso * 0.0235}
              width={widthReso * 0.342}

@@ -54,7 +54,7 @@ const ButtonGlobal = ({
         {title}
        </Text>
        <IconGlobalNative
-         title={isPressed ? titleIconDark : titleIcon}
+         title={isPressed ? titleIcon : titleIconDark}
          height={heightIcon}
          width={widthIcon}
          resizeMode={resizeModeIcon}
