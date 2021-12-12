@@ -4,13 +4,16 @@ import {
   VStack,
   Pressable,
   Box,
+  HStack
 } from 'native-base';
+import { IconGlobalNative } from '../..';
 
 const ButtonGlobal = ({
   title, titleColor, paddingX, paddingY,
   borderRadius, onPress, height, width, hoveredColor,
   fontSize, fontWeight, pressedColor, nativeColor, titleColorPress,
-  titleColorHov
+  titleColorHov, isIconActive, titleIcon, titleIconDark, heightIcon,
+  widthIcon, resizeModeIcon, spaceIcon
 }) => (
 <Pressable
   onPress={onPress}
@@ -35,16 +38,40 @@ const ButtonGlobal = ({
       ],
     }}
   >
-    <Text
-      textAlign="center"
-      _dark={{ color: 'coolGray.800' }}
-      color={isPressed ? titleColorPress : isHovered ? titleColorHov : titleColor}
-      fontSize={fontSize}
-      fontFamily="body"
-      fontWeight={fontWeight}
-    >
-    {title}
-    </Text>
+    {isIconActive ? (
+     <HStack
+       alignItems="center"
+       space={spaceIcon}
+     >
+       <Text
+         textAlign="center"
+         _dark={{ color: 'coolGray.800' }}
+         color={isPressed ? titleColorPress : isHovered ? titleColorHov : titleColor}
+         fontSize={fontSize}
+         fontFamily="body"
+         fontWeight={fontWeight}
+       >
+        {title}
+       </Text>
+       <IconGlobalNative
+         title={isPressed ? titleIconDark : titleIcon}
+         height={heightIcon}
+         width={widthIcon}
+         resizeMode={resizeModeIcon}
+       />
+     </HStack>
+    ) : (
+      <Text
+        textAlign="center"
+        _dark={{ color: 'coolGray.800' }}
+        color={isPressed ? titleColorPress : isHovered ? titleColorHov : titleColor}
+        fontSize={fontSize}
+        fontFamily="body"
+        fontWeight={fontWeight}
+      >
+        {title}
+      </Text>
+    )}
   </VStack>
  )}
 </Pressable>

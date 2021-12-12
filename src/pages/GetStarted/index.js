@@ -73,7 +73,6 @@ const GetStarted = () => {
        px={widthReso * 0.07}
        flex={1}
        justifyContent="flex-end"
-      //  bg="yellow.400"
      >
        <VStack
          flex={1}
@@ -111,34 +110,49 @@ const GetStarted = () => {
              Or join us if you&rsquo;re a great writer!
            </Text>
          </Box>
-         <VStack space={heightReso * 0.015}>
+         <VStack
+           space={heightReso * 0.015}
+           width={widthReso * 0.342}
+         >
            <ButtonGlobal
              title="EXPLORE"
              titleColor="white"
-             fontSize={heightReso * 0.0146}
-             fontWeight={100}
+             fontSize={heightReso * 0.0136}
+             fontWeight={300}
              nativeColor="custom.900"
              paddingX={widthReso * 0.072}
              paddingY={widthReso * 0.0235}
              width={widthReso * 0.342}
              borderRadius="10px"
-           //  onPress={onContinue}
              pressedColor="red.600"
              hoveredColor="red.600"
+             isIconActive
+             titleIcon="navigate"
+             titleIconDark="navigate-dark"
+             heightIcon={1}
+             widthIcon={1}
+             resizeModeIcon="contain"
+             spaceIcon={widthReso * 0.012}
            />
            <ButtonGlobal
              title="SIGN IN"
              titleColor="white"
-             fontSize={heightReso * 0.0146}
-             fontWeight={100}
+             fontSize={heightReso * 0.0136}
+             fontWeight={300}
              nativeColor="custom.900"
              paddingX={widthReso * 0.072}
              paddingY={widthReso * 0.0235}
              width={widthReso * 0.342}
              borderRadius="10px"
-           //  onPress={onContinue}
              pressedColor="red.600"
              hoveredColor="red.600"
+             isIconActive
+             titleIcon="forward"
+             titleIconDark="forward-dark"
+             heightIcon={1}
+             widthIcon={1}
+             resizeModeIcon="contain"
+             spaceIcon={widthReso * 0.012}
            />
          </VStack>
        </VStack>
