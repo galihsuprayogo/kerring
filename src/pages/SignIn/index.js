@@ -11,7 +11,8 @@ import {
 import {
   ButtonGlobal,
   FormInput,
-  IconGlobal
+  IconGlobal,
+  Loading
 } from '../../components';
 import {
   globalResolution,
@@ -29,6 +30,7 @@ const SignIn = ({ navigation }) => {
   const [isPassword, setIsPassword] = useState(false);
   const [isVisibleIcon, setIsVisibleIcon] = useState(false);
   const [isVisibleKeyboard, setIsVisibleKeyboard] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let keyboardEventListeners;
@@ -66,8 +68,13 @@ const SignIn = ({ navigation }) => {
           ),
         });
       } else {
-        console.log(form.email, form.password);
-        setForm('reset');
+        setIsLoading(true);
+        const res = setTimeout(() => {
+          console.log(form.email, form.password);
+          setForm('reset');
+          setIsLoading(false);
+        }, 3000);
+        return () => clearTimeout(res);
       }
       if (form.password.length !== 6 && reg.test(form.email) === false) {
         toast.show({
@@ -112,6 +119,7 @@ const SignIn = ({ navigation }) => {
      justifyContent="center"
      space={heightReso * 0.035}
    >
+    {isLoading && (<Loading />)}
     <VStack
       alignItems="center"
       justifyContent="center"
