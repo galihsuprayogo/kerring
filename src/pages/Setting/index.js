@@ -18,7 +18,7 @@ const Setting = ({ navigation }) => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
 
-  const onLogout = () => {
+  const onSignOut = () => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
     const res = setTimeout(() => {
       removeAsyncData('user_session');
@@ -40,21 +40,20 @@ const Setting = ({ navigation }) => {
     flex={1}
     alignItems="center"
     justifyContent="center"
-    bg="custom.900"
   >
      <ButtonGlobal
-       title="LOGOUT"
-       titleColor="custom.900"
-       titleColorPress="custom.100"
+       title="SIGN OUT"
+       titleColor="custom.100"
+       titleColorPress="custom.900"
        fontSize={heightReso * 0.0136}
        fontWeight={700}
-       nativeColor="custom.100"
+       nativeColor="custom.900"
        paddingX={widthReso * 0.052}
        paddingY={widthReso * 0.0235}
        borderRadius="6px"
        pressedColor="red.600"
        hoveredColor="red.600"
-       onPress={onLogout}
+       onPress={onSignOut}
      />
   </VStack>
   );

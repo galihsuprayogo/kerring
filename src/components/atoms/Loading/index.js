@@ -17,7 +17,9 @@ const Loading = () => (
   zIndex={1}
   alignItems="center"
   justifyContent="center"
-  bg="transparent"
+  style={{
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+  }}
 >
   <Spinner
     color="red.600"

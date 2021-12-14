@@ -161,7 +161,7 @@ const SignUp = () => {
         fontWeight={300}
         letterSpacing="sm"
       >
-      or passionate to writing all
+      or have a hobby to reading all
       about songs, albums, biography, etc from artist/band you
       like most ?
       </Text>
