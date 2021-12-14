@@ -4,6 +4,12 @@ import iconNavigate from './icon-navigate.png';
 import iconNavigateDark from './icon-navigate-dark.png';
 import iconShowPassword from './show-password.png';
 import iconHidePassword from './hide-password.png';
+import iconSetting from './icon-setting.png';
+import iconSettingInactive from './icon-setting-inactive.png';
+import iconSearch from './icon-search.png';
+import iconSearchInactive from './icon-search-inactive.png';
+import iconHome from './icon-home.png';
+import iconHomeInactive from './icon-home-inactive.png';
 
 export {
   iconForward,
@@ -11,5 +17,11 @@ export {
   iconNavigate,
   iconNavigateDark,
   iconShowPassword,
-  iconHidePassword
+  iconHidePassword,
+  iconSetting,
+  iconSettingInactive,
+  iconSearch,
+  iconSearchInactive,
+  iconHome,
+  iconHomeInactive
 };

@@ -99,6 +99,12 @@
         "react/function-component-definition": [
             0
         ],
-        "default-param-last": "off"
+        "default-param-last": "off",
+        "react/no-unstable-nested-components": [
+            "off",
+            {
+                "allowAsProps": true
+            }
+        ]
     }
 }

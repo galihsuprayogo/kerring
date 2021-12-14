@@ -7,7 +7,13 @@ import {
   iconNavigate,
   iconNavigateDark,
   iconShowPassword,
-  iconHidePassword
+  iconHidePassword,
+  iconHome,
+  iconHomeInactive,
+  iconSearch,
+  iconSearchInactive,
+  iconSetting,
+  iconSettingInactive
 } from '../../../assets';
 
 const IconGlobalNative = ({
@@ -61,8 +67,62 @@ const IconGlobalNative = ({
       );
     case 'hide-password':
       return (
+      <Image
+        source={iconHidePassword}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Home':
+      return (
+      <Image
+        source={iconHome}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Home-Inactive':
+      return (
+      <Image
+        source={iconHomeInactive}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Search':
+      return (
+      <Image
+        source={iconSearch}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Search-Inactive':
+      return (
+      <Image
+        source={iconSearchInactive}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Setting':
+      return (
+      <Image
+        source={iconSetting}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Setting-Inactive':
+      return (
         <Image
-          source={iconHidePassword}
+          source={iconSettingInactive}
           height={height}
           width={width}
           resizeMode={resizeMode}

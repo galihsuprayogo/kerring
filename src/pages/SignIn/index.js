@@ -73,30 +73,30 @@ const SignIn = ({ navigation }) => {
           ),
         });
       } else {
-        auth().signInWithEmailAndPassword(form.email, form.password).then((res) => {
-          console.log('success => ', res.user);
-        }).catch((error) => {
-          console.log('error login => ', error.code);
-        });
-        // dispatch({ type: globalAction.SET_LOADING, value: true });
-        // const data = {
-        //   email: form.email,
-        //   password: form.password
-        // };
-        // const res = setTimeout(() => {
-        //   storeAsyncData('user_session', data);
-        //   navigation.replace('Home');
-        //   setForm('reset');
-        //   dispatch({ type: globalAction.SET_LOADING, value: false });
-        //   toast.show({
-        //     placement: 'top',
-        //     duration: 2000,
-        //     render: () => (
-        //        <ShowSuccess message="Login Successfully" />
-        //     ),
-        //   });
-        // }, 3000);
-        // return () => clearTimeout(res);
+        // auth().signInWithEmailAndPassword(form.email, form.password).then((res) => {
+        //   console.log('success => ', res.user);
+        // }).catch((error) => {
+        //   console.log('error login => ', error.code);
+        // });
+        dispatch({ type: globalAction.SET_LOADING, value: true });
+        const data = {
+          email: form.email,
+          password: form.password
+        };
+        const res = setTimeout(() => {
+          storeAsyncData('user_session', data);
+          navigation.replace('MainApp');
+          setForm('reset');
+          dispatch({ type: globalAction.SET_LOADING, value: false });
+          toast.show({
+            placement: 'top',
+            duration: 2000,
+            render: () => (
+               <ShowSuccess message="Login Successfully" />
+            ),
+          });
+        }, 3000);
+        return () => clearTimeout(res);
       }
       if (form.password.length !== 6 && reg.test(form.email) === false) {
         toast.show({

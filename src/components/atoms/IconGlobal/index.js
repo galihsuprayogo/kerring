@@ -3,7 +3,9 @@ import {
   Image,
   Icon,
 } from 'native-base';
-import { authImage } from '../../../assets';
+import {
+  authImage,
+} from '../../../assets';
 
 const IconGlobal = ({
   title, height, width, resizeMode,
