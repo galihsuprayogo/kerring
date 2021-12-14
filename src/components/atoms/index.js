@@ -1,3 +1,4 @@
+import AvatarStatic from './AvatarStatic';
 import BottomTabItem from './BottomTabItem';
 import ButtonGlobal from './ButtonGlobal';
 import Card from './Card';
@@ -7,6 +8,7 @@ import Loading from './Loading';
 import PictureStatic from './PictureStatic';
 
 export {
+  AvatarStatic,
   BottomTabItem,
   ButtonGlobal,
   Card,
