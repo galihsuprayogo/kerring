@@ -6,24 +6,50 @@ import {
   VStack,
   Text
 } from 'native-base';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import { IconGlobalNative } from '../..';
+import { globalAction } from '../../../redux';
 
 const CardNews = ({
   artist, artistFontSize, headline, headlineFontSize,
   date, dateFontSize, writer, writerFontSize, picture,
-  widthCard, widthReso, heightReso
-}) => (
-<VStack
-  width={widthCard}
-  bg="custom.100"
->
+  widthCard, widthReso, heightReso, idNews, imageTitle
+}) => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const onDetail = (idNews, artist, headline, writer, date) => {
+    dispatch({ type: globalAction.SET_LOADING, value: true });
+    const mount = setTimeout(() => {
+      navigation.push('Detail',
+        {
+          route: {
+            idNews,
+            artist,
+            headline,
+            writer,
+            date
+          }
+        }
+      );
+      dispatch({ type: globalAction.SET_LOADING, value: false });
+    }, 2000);
+    return () => clearTimeout(mount);
+  };
+
+  return (
   <VStack
-    bg="custom.900"
+    width={widthCard}
+    bg="custom.100"
   >
-   <VStack
-     px={widthReso * 0.02}
-     py={heightReso * 0.01}
-   >
+    <VStack
+      bg="custom.900"
+    >
+     <VStack
+       px={widthReso * 0.02}
+       py={heightReso * 0.01}
+     >
      <Box>
        <Text
          color="custom.100"
@@ -46,44 +72,44 @@ const CardNews = ({
          {headline}
        </Text>
      </Box>
-   </VStack>
-   <VStack
-     width="100%"
-     borderTopWidth={heightReso * 0.0025}
-     borderTopColor="custom.100"
-     borderBottomWidth={heightReso * 0.0025}
-     borderBottomColor="custom.100"
-   >
+     </VStack>
+     <VStack
+       width="100%"
+       borderTopWidth={heightReso * 0.0025}
+       borderTopColor="custom.100"
+       borderBottomWidth={heightReso * 0.0025}
+       borderBottomColor="custom.100"
+     >
      {picture}
-   </VStack>
-   <VStack
-     px={widthReso * 0.02}
-     py={heightReso * 0.01}
-   >
-     <Box>
-       <Text
-         color="custom.100"
-         textAlign="right"
-         fontSize={artistFontSize}
-         fontFamily="heading"
-         fontWeight={600}
-         letterSpacing="sm"
-         fontStyle="italic"
-       >
+     </VStack>
+      <VStack
+        px={widthReso * 0.02}
+        py={heightReso * 0.01}
+      >
+       <Box>
+          <Text
+            color="custom.100"
+            textAlign="right"
+            fontSize={artistFontSize}
+            fontFamily="heading"
+            fontWeight={600}
+            letterSpacing="sm"
+            fontStyle="italic"
+          >
          KERRING!
-       </Text>
-     </Box>
-   </VStack>
-  </VStack>
-  <VStack
-    px={widthReso * 0.02}
-    py={heightReso * 0.01}
-  >
-   <HStack
-     alignItems="center"
-     justifyContent="space-between"
-   >
-     <Box>
+          </Text>
+       </Box>
+      </VStack>
+    </VStack>
+    <VStack
+      px={widthReso * 0.02}
+      py={heightReso * 0.01}
+    >
+      <HStack
+        alignItems="center"
+        justifyContent="space-between"
+      >
+      <Box>
          <Text
            color="custom.900"
            textAlign="left"
@@ -104,9 +130,16 @@ const CardNews = ({
        >
          {date}
        </Text>
-     </Box>
-     <VStack>
-       <Pressable onPress={() => {}}>
+      </Box>
+      <VStack>
+       <Pressable
+         onPress={() =>
+           onDetail(idNews,
+             artist,
+             headline,
+             writer,
+             date)}
+       >
         {({ isHovered, isFocused, isPressed }) => (
          <Box
            style={{
@@ -126,11 +159,11 @@ const CardNews = ({
          </Box>
         )}
        </Pressable>
-     </VStack>
-   </HStack>
+      </VStack>
+      </HStack>
+    </VStack>
   </VStack>
-</VStack>
-
-);
+  );
+};
 
 export default CardNews;

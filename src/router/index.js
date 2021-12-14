@@ -10,7 +10,10 @@ import {
   SignUp,
   Splash
 } from '../pages';
-import { BottomTabNavigator } from '../components';
+import {
+  BottomTabNavigator,
+  DetailNews
+} from '../components';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,6 +65,11 @@ const Router = () => (
   <Stack.Screen
     name="MainApp"
     component={MainApp}
+    options={{ headerShown: false }}
+  />
+  <Stack.Screen
+    name="Detail"
+    component={DetailNews}
     options={{ headerShown: false }}
   />
  </Stack.Navigator>

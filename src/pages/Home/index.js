@@ -25,7 +25,6 @@ const Home = () => {
      flex={1}
      alignItems="center"
      paddingX={widthReso * 0.02}
-     paddingY={heightReso * 0.02}
    >
      <ScrollView
        showsVerticalScrollIndicator={false}
@@ -33,6 +32,7 @@ const Home = () => {
        <VStack
          flex={1}
          space={heightReso * 0.02}
+         paddingY={heightReso * 0.02}
        >
          <Card
            title="The News"
@@ -49,6 +49,7 @@ const Home = () => {
              {JSONNews.map((item, index) => (
                <CardNews
                  key={index}
+                 idNews={item.id}
                  widthCard={widthReso * 0.47}
                  widthReso={widthReso}
                  heightReso={heightReso}
@@ -60,6 +61,7 @@ const Home = () => {
                  writerFontSize={heightReso * 0.015}
                  date={item.date}
                  dateFontSize={heightReso * 0.011}
+                 imageTitle={item.imageTitle}
                  picture={(
                <PictureStatic
                  title={item.imageTitle}
