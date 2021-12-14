@@ -17,7 +17,7 @@ const Splash = ({ navigation }) => {
       if (res === undefined) {
         navigation.replace('GetStarted');
       } else {
-        navigation.replace('Home');
+        navigation.replace('Setting');
       }
     }, 2600);
     return () => clearTimeout(unmount);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Platform, Keyboard } from 'react-native';
+import auth from '@react-native-firebase/auth';
 import { useDispatch } from 'react-redux';
 import {
   Box,
@@ -13,7 +14,6 @@ import {
   ButtonGlobal,
   FormInput,
   IconGlobal,
-  Loading
 } from '../../components';
 import {
   globalAction
@@ -56,7 +56,7 @@ const SignIn = ({ navigation }) => {
   const onContinue = () => {
     if (form.email !== '' && form.password !== '') {
       const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w\w+)+$/;
-      if (form.password.length !== 6) {
+      if (form.password.length < 6) {
         toast.show({
           placement: 'top',
           duration: 2000,
@@ -73,25 +73,30 @@ const SignIn = ({ navigation }) => {
           ),
         });
       } else {
-        dispatch({ type: globalAction.SET_LOADING, value: true });
-        const data = {
-          email: form.email,
-          password: form.password
-        };
-        const res = setTimeout(() => {
-          storeAsyncData('user_session', data);
-          navigation.replace('Home');
-          setForm('reset');
-          dispatch({ type: globalAction.SET_LOADING, value: false });
-          toast.show({
-            placement: 'top',
-            duration: 2000,
-            render: () => (
-               <ShowSuccess message="Login Successfully" />
-            ),
-          });
-        }, 3000);
-        return () => clearTimeout(res);
+        auth().signInWithEmailAndPassword(form.email, form.password).then((res) => {
+          console.log('success => ', res.user);
+        }).catch((error) => {
+          console.log('error login => ', error.code);
+        });
+        // dispatch({ type: globalAction.SET_LOADING, value: true });
+        // const data = {
+        //   email: form.email,
+        //   password: form.password
+        // };
+        // const res = setTimeout(() => {
+        //   storeAsyncData('user_session', data);
+        //   navigation.replace('Home');
+        //   setForm('reset');
+        //   dispatch({ type: globalAction.SET_LOADING, value: false });
+        //   toast.show({
+        //     placement: 'top',
+        //     duration: 2000,
+        //     render: () => (
+        //        <ShowSuccess message="Login Successfully" />
+        //     ),
+        //   });
+        // }, 3000);
+        // return () => clearTimeout(res);
       }
       if (form.password.length !== 6 && reg.test(form.email) === false) {
         toast.show({

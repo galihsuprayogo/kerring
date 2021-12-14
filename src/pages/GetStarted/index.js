@@ -78,7 +78,7 @@ const GetStarted = ({ navigation }) => {
        <VStack
          flex={1}
          py={heightReso * 0.05}
-         justifyContent="space-around"
+         justifyContent="space-evenly"
        >
          <VStack space={heightReso * 0.006}>
            <Box>
@@ -90,7 +90,7 @@ const GetStarted = ({ navigation }) => {
                letterSpacing="md"
                fontStyle="italic"
              >
-               Let&rsquo;s explore based on
+              Read and explore based on
              </Text>
              <Text
                color="custom.100"
@@ -111,7 +111,7 @@ const GetStarted = ({ navigation }) => {
              fontWeight={400}
              letterSpacing="md"
            >
-             Or join us if you&rsquo;re a great writer!
+             Let&rsquo;s find out!
            </Text>
           </Box>
          </VStack>
@@ -119,27 +119,6 @@ const GetStarted = ({ navigation }) => {
            space={heightReso * 0.02}
            width={widthReso * 0.342}
          >
-           <ButtonGlobal
-             title="EXPLORE"
-             titleColor="custom.900"
-             titleColorPress="white"
-             fontSize={heightReso * 0.0126}
-             fontWeight={300}
-             nativeColor="custom.100"
-             paddingX={widthReso * 0.072}
-             paddingY={widthReso * 0.0235}
-             width={widthReso * 0.299}
-             borderRadius="10px"
-             pressedColor="red.600"
-             hoveredColor="red.600"
-             isIconActive
-             titleIcon="navigate"
-             titleIconDark="navigate-dark"
-             heightIcon={1}
-             widthIcon={1}
-             resizeModeIcon="contain"
-             spaceIcon={widthReso * 0.012}
-           />
            <ButtonGlobal
              title="SIGN IN"
              titleColor="custom.900"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import auth from '@react-native-firebase/auth';
 import {
   Box,
   VStack,
@@ -65,7 +66,21 @@ const SignUp = () => {
           ),
         });
       } else {
-        console.log(form.email, ' ', form.password, ' ', form.confirmation);
+        auth()
+          .createUserWithEmailAndPassword(form.email, form.password)
+          .then((res) => {
+            console.log('User => ', res);
+          })
+          .catch((error) => {
+            if (error.code === 'auth/email-already-in-use') {
+              console.log('That email address is already in use!');
+            }
+
+            if (error.code === 'auth/invalid-email') {
+              console.log('That email address is invalid!');
+            }
+            console.error(error);
+          });
         setForm('reset');
       }
       if (form.password.length !== 6 && reg.test(form.email) === false) {
@@ -158,7 +173,7 @@ const SignUp = () => {
        fontWeight={400}
        letterSpacing="sm"
      >
-      Let&rsquo;s join with us !
+      Let&rsquo;s start create account !
      </Text>
    </VStack>
   <VStack

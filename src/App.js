@@ -26,4 +26,5 @@ const App = () => (
   <MainApp />
 </Provider>
 );
+
 export default App;

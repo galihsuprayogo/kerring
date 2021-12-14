@@ -12,7 +12,7 @@ import {
   ShowSuccess
 } from '../../utils';
 
-const Home = ({ navigation }) => {
+const Setting = ({ navigation }) => {
   const dispatch = useDispatch();
   const toast = useToast();
   const heightReso = globalResolution().height;
@@ -60,4 +60,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default Setting;

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "510657194489",
+    "project_id": "kerring-auth",
+    "storage_bucket": "kerring-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510657194489:android:b70d88dfb63c13b459f528",
+        "android_client_info": {
+          "package_name": "com.kerring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510657194489-iaeglsppgvmek50jpc9p4b39p90hb1jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kerring",
+            "certificate_hash": "d13039d35356e566e6316342a290eed61eb5620b"
+          }
+        },
+        {
+          "client_id": "510657194489-mt3ttk38kb7ltfl02g98mgrbmebprkid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQfqVoUpE0jc1CYm0AwdulH7w2G3MjHRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510657194489-mt3ttk38kb7ltfl02g98mgrbmebprkid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
