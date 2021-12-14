@@ -35,9 +35,8 @@ const BottomTabNavigator = ({ state, descriptors, navigation }) => {
  <HStack
    bg="white"
    alignItems="flex-end"
-   justifyContent="space-evenly"
+   justifyContent="space-around"
    shadow={5}
-   roundedTop="2xl"
    width="100%"
    overflow="hidden"
  >

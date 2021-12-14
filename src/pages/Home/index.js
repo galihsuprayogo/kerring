@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, VStack } from 'react-native';
+import { Text, VStack } from 'native-base';
 
 const Home = () => (
  <VStack
    flex={1}
-   alignItem="center"
+   alignItems="center"
    justifyContent="center"
  >
    <Text
-     color="custom.100"
+     color="custom.900"
      fontSize="md"
      fontFamily="body"
      fontWeight={600}

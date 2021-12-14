@@ -18,13 +18,9 @@ const BottomTabItem = ({
         return active ? (
          <PresenceTransition
            visible
-           initial={{
-             opacity: 0,
-             scale: 0.5,
-           }}
            animate={{
              opacity: 1,
-             scale: 1.2,
+             scale: 0.9,
              transition: {
                duration: 150,
              },
@@ -38,24 +34,31 @@ const BottomTabItem = ({
          />
          </PresenceTransition>
         ) : (
-         <IconGlobalNative
-           title="Home-Inactive"
-           height={1}
-           width={1}
-           resizeMode="contain"
-         />
+        <PresenceTransition
+          visible
+          animate={{
+            opacity: 1,
+            scale: 0.7,
+            transition: {
+              duration: 150,
+            },
+          }}
+        >
+           <IconGlobalNative
+             title="Home-Inactive"
+             height={1}
+             width={1}
+             resizeMode="contain"
+           />
+        </PresenceTransition>
         );
       case 'Search':
         return active ? (
          <PresenceTransition
            visible
-           initial={{
-             opacity: 0,
-             scale: 0.5,
-           }}
            animate={{
              opacity: 1,
-             scale: 1.2,
+             scale: 0.9,
              transition: {
                duration: 150,
              },
@@ -69,24 +72,31 @@ const BottomTabItem = ({
          />
          </PresenceTransition>
         ) : (
+          <PresenceTransition
+            visible
+            animate={{
+              opacity: 1,
+              scale: 0.7,
+              transition: {
+                duration: 150,
+              },
+            }}
+          >
          <IconGlobalNative
            title="Search-Inactive"
            height={1}
            width={1}
            resizeMode="contain"
          />
+          </PresenceTransition>
         );
       case 'Setting':
         return active ? (
          <PresenceTransition
            visible
-           initial={{
-             opacity: 0,
-             scale: 0.5,
-           }}
            animate={{
              opacity: 1,
-             scale: 1.2,
+             scale: 0.9,
              transition: {
                duration: 150,
              },
@@ -100,12 +110,23 @@ const BottomTabItem = ({
          />
          </PresenceTransition>
         ) : (
-        <IconGlobalNative
-          title="Setting-Inactive"
-          height={1}
-          width={1}
-          resizeMode="contain"
-        />
+        <PresenceTransition
+          visible
+          animate={{
+            opacity: 1,
+            scale: 0.7,
+            transition: {
+              duration: 150,
+            },
+          }}
+        >
+          <IconGlobalNative
+            title="Setting-Inactive"
+            height={1}
+            width={1}
+            resizeMode="contain"
+          />
+        </PresenceTransition>
         );
       default:
         return (
@@ -125,7 +146,7 @@ const BottomTabItem = ({
     onPress={onPress}
   >
     <HStack
-      p="4"
+      p="3"
       space={1}
       alignItems="center"
       justifyContent="center"
@@ -133,7 +154,7 @@ const BottomTabItem = ({
        <VStack
          alignItems="center"
          justifyContent="center"
-         space="2"
+         space="1"
        >
        <IconTab />
         <Text
@@ -141,7 +162,7 @@ const BottomTabItem = ({
           color={active ? 'custom.900' : 'custom.300'}
           fontSize="sm"
           fontFamily="body"
-          fontWeight={active ? 500 : 400}
+          fontWeight={active ? 300 : 100}
         >
          {title}
         </Text>
