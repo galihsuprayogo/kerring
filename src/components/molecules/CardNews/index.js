@@ -118,7 +118,7 @@ const CardNews = ({
            }}
          >
            <IconGlobalNative
-             title="forward-dark"
+             title="forward-dark-hd"
              height={1}
              width={1}
              resizeMode="contain"

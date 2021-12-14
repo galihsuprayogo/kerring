@@ -4,6 +4,7 @@ import { Image } from 'react-native';
 import {
   iconForward,
   iconForwardDark,
+  iconForwardDarkHd,
   iconNavigate,
   iconNavigateDark,
   iconShowPassword,
@@ -37,6 +38,15 @@ const IconGlobalNative = ({
           width={width}
           resizeMode={resizeMode}
         />
+      );
+    case 'forward-dark-hd':
+      return (
+          <Image
+            source={iconForwardDarkHd}
+            height={height}
+            width={width}
+            resizeMode={resizeMode}
+          />
       );
     case 'navigate':
       return (

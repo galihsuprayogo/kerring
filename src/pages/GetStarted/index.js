@@ -24,7 +24,7 @@ const GetStarted = ({ navigation }) => {
        <Image
          source={veinStartedImage}
          resizeMode="cover"
-         height={heightReso * 0.556}
+         height={heightReso * 0.656}
          width="100%"
          borderBottomLeftRadius={100}
          alt="vein"
@@ -76,9 +76,8 @@ const GetStarted = ({ navigation }) => {
        justifyContent="flex-end"
      >
        <VStack
-         flex={1}
          py={heightReso * 0.05}
-         justifyContent="space-evenly"
+         space={heightReso * 0.03}
        >
          <VStack space={heightReso * 0.006}>
            <Box>

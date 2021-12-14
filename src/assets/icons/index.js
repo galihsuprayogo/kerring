@@ -1,5 +1,6 @@
 import iconForward from './icon-forward.png';
 import iconForwardDark from './icon-forward-dark.png';
+import iconForwardDarkHd from './icon-forward-dark-hd.png';
 import iconNavigate from './icon-navigate.png';
 import iconNavigateDark from './icon-navigate-dark.png';
 import iconShowPassword from './show-password.png';
@@ -14,6 +15,7 @@ import iconHomeInactive from './icon-home-inactive.png';
 export {
   iconForward,
   iconForwardDark,
+  iconForwardDarkHd,
   iconNavigate,
   iconNavigateDark,
   iconShowPassword,
