@@ -37,7 +37,7 @@ const GetStarted = ({ navigation }) => {
           <Text
             color="custom.100"
             fontSize={heightReso * 0.0135}
-            fontFamily="body"
+            fontFamily="heading"
             fontWeight={600}
             letterSpacing="sm"
             fontStyle="italic"
@@ -124,7 +124,7 @@ const GetStarted = ({ navigation }) => {
              titleColor="custom.900"
              titleColorPress="white"
              fontSize={heightReso * 0.0126}
-             fontWeight={300}
+             fontWeight={700}
              nativeColor="custom.100"
              paddingX={widthReso * 0.072}
              paddingY={widthReso * 0.0235}

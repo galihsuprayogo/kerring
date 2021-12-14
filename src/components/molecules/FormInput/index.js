@@ -15,9 +15,9 @@ const FormInput = ({
   <FormControl.Label
     _text={{
       color: 'white',
-      fontFamily: 'heading',
+      fontFamily: 'body',
       fontSize: fontSizeLabel,
-      fontWeight: 400,
+      fontWeight: 600,
     }}
   >
    {label}
@@ -31,6 +31,8 @@ const FormInput = ({
      fontSize={fontSize}
      alignItems="center"
      justifyContent="center"
+     fontFamily="body"
+     fontWeight={600}
      textAlignVertical="center"
      onChangeText={onChangeText}
      placeholder={placeholder}
@@ -74,6 +76,8 @@ const FormInput = ({
        alignItems="center"
        justifyContent="center"
        textAlignVertical="center"
+       fontFamily="body"
+       fontWeight={600}
        fontSize={fontSize}
        value={value}
        height={height}

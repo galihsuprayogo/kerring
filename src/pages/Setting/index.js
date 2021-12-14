@@ -47,7 +47,7 @@ const Setting = ({ navigation }) => {
        titleColor="custom.900"
        titleColorPress="custom.100"
        fontSize={heightReso * 0.0136}
-       fontWeight={500}
+       fontWeight={700}
        nativeColor="custom.100"
        paddingX={widthReso * 0.052}
        paddingY={widthReso * 0.0235}

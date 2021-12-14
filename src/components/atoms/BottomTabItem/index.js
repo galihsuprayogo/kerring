@@ -160,9 +160,10 @@ const BottomTabItem = ({
         <Text
           textAlign="center"
           color={active ? 'custom.900' : 'custom.300'}
-          fontSize="sm"
+          fontSize="xs"
           fontFamily="body"
-          fontWeight={active ? 300 : 100}
+          letterSpacing="xs"
+          fontWeight={active ? 500 : 100}
         >
          {title}
         </Text>

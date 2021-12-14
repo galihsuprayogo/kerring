@@ -203,7 +203,7 @@ const SignIn = ({ navigation }) => {
            titleColor="custom.900"
            titleColorPress="custom.100"
            fontSize={heightReso * 0.0136}
-           fontWeight={500}
+           fontWeight={700}
            nativeColor="custom.100"
            paddingX={widthReso * 0.052}
            paddingY={widthReso * 0.0235}
@@ -222,7 +222,7 @@ const SignIn = ({ navigation }) => {
          color="custom.100"
          fontSize={heightReso * 0.013}
          fontFamily="body"
-         fontWeight={100}
+         fontWeight={200}
          letterSpacing="sm"
        >
         Don&rsquo;t have an account?
@@ -236,7 +236,7 @@ const SignIn = ({ navigation }) => {
             color={isPressed ? 'red.600' : 'custom.100'}
             fontSize={heightReso * 0.013}
             fontFamily="body"
-            fontWeight={300}
+            fontWeight={600}
             letterSpacing="sm"
           >
                Register here

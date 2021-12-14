@@ -29,7 +29,6 @@ const Loading = () => (
     fontFamily="body"
     fontWeight={600}
     letterSpacing="sm"
-    fontStyle="italic"
   >
    Loading
   </Text>

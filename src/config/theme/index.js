@@ -34,11 +34,45 @@ export const theme = extendTheme({
       600: {
         italic: 'TTJenevers-BlackItalic'
       },
+    },
+    Nunito: {
+      100: {
+        normal: 'Nunito-ExtraLight',
+        italic: 'Nunito-ExtraLightItalic'
+      },
+      200: {
+        normal: 'Nunito-Light',
+        italic: 'Nunito-LightItalic'
+      },
+      300: {
+        normal: 'Nunito-Regular',
+        italic: 'Nunito-RegularItalic'
+      },
+      400: {
+        normal: 'Nunito-Medium',
+        italic: 'Nunito-MediumItalic'
+      },
+      500: {
+        normal: 'Nunito-SemiBold',
+        italic: 'Nunito-SemiBoldItalic'
+      },
+      600: {
+        normal: 'Nunito-Bold',
+        italic: 'Nunito-BoldItalic'
+      },
+      700: {
+        normal: 'Nunito-ExtraBold',
+        italic: 'Nunito-ExtraBoldItalic'
+      },
+      800: {
+        normal: 'Nunito-Black',
+        italic: 'Nunito-BlackItalic'
+      }
     }
   },
   fonts: {
     heading: 'TTJenevers',
-    body: 'TTJenevers',
+    body: 'Nunito',
     mono: 'TTJenevers',
   },
   config: {

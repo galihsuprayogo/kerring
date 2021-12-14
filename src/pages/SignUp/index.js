@@ -149,7 +149,7 @@ const SignUp = () => {
         color="custom.100"
         fontSize={heightReso * 0.016}
         fontFamily="body"
-        fontWeight={200}
+        fontWeight={300}
         letterSpacing="sm"
       >
       Are you music enthusiast ?
@@ -158,7 +158,7 @@ const SignUp = () => {
         color="custom.100"
         fontSize={heightReso * 0.016}
         fontFamily="body"
-        fontWeight={200}
+        fontWeight={300}
         letterSpacing="sm"
       >
       or passionate to writing all
@@ -231,7 +231,7 @@ const SignUp = () => {
         titleColor="custom.900"
         titleColorPress="custom.100"
         fontSize={heightReso * 0.0136}
-        fontWeight={500}
+        fontWeight={700}
         nativeColor="custom.100"
         paddingX={widthReso * 0.052}
         paddingY={widthReso * 0.0235}
