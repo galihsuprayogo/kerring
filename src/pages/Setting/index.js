@@ -4,12 +4,14 @@ import {
   VStack
 } from 'native-base';
 import { useDispatch } from 'react-redux';
+import auth from '@react-native-firebase/auth';
 import { ButtonGlobal } from '../../components';
 import { removeAsyncData } from '../../services';
 import { globalAction } from '../../redux';
 import {
   globalResolution,
-  ShowSuccess
+  ShowSuccess,
+  ShowError
 } from '../../utils';
 
 const Setting = ({ navigation }) => {
@@ -21,25 +23,36 @@ const Setting = ({ navigation }) => {
   const onSignOut = () => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
     const res = setTimeout(() => {
-      removeAsyncData('user_session');
-      navigation.replace('Splash');
-      dispatch({ type: globalAction.SET_LOADING, value: false });
-      toast.show({
-        placement: 'top',
-        duration: 2000,
-        render: () => (
+      auth().signOut().then(() => {
+        removeAsyncData('user_session');
+        navigation.replace('SignIn');
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
          <ShowSuccess message="Logout Successfully" />
-        ),
+          ),
+        });
+      }).catch((error) => {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+           <ShowError message="Try Again" />
+          ),
+        });
       });
-    }, 3000);
+      dispatch({ type: globalAction.SET_LOADING, value: false });
+    }, 2500);
     return () => clearTimeout(res);
   };
 
   return (
   <VStack
     flex={1}
-    alignItems="center"
-    justifyContent="center"
+    alignItems="flex-end"
+    justifyContent="flex-end"
+    p="5"
   >
      <ButtonGlobal
        title="SIGN OUT"

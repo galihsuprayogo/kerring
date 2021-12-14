@@ -49,7 +49,7 @@ const SignUp = () => {
            <ShowError message="Email format invalid" />
           ),
         });
-      } else if (form.password.length !== 6) {
+      } else if (form.password.length < 6) {
         toast.show({
           placement: 'top',
           duration: 2000,
@@ -83,7 +83,7 @@ const SignUp = () => {
           });
         setForm('reset');
       }
-      if (form.password.length !== 6 && reg.test(form.email) === false) {
+      if (form.password.length < 6 && reg.test(form.email) === false) {
         toast.show({
           placement: 'top',
           duration: 2000,

@@ -138,7 +138,7 @@ const GetStarted = ({ navigation }) => {
              widthIcon={1}
              resizeModeIcon="contain"
              spaceIcon={widthReso * 0.012}
-             onPress={() => navigation.push('SignIn')}
+             onPress={() => navigation.replace('SignIn')}
            />
          </VStack>
        </VStack>

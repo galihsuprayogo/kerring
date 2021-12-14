@@ -73,32 +73,52 @@ const SignIn = ({ navigation }) => {
           ),
         });
       } else {
-        // auth().signInWithEmailAndPassword(form.email, form.password).then((res) => {
-        //   console.log('success => ', res.user);
-        // }).catch((error) => {
-        //   console.log('error login => ', error.code);
-        // });
         dispatch({ type: globalAction.SET_LOADING, value: true });
         const data = {
-          email: form.email,
-          password: form.password
+          uid: '',
+          email: '',
+          token: '',
         };
-        const res = setTimeout(() => {
-          storeAsyncData('user_session', data);
-          navigation.replace('MainApp');
-          setForm('reset');
-          dispatch({ type: globalAction.SET_LOADING, value: false });
-          toast.show({
-            placement: 'top',
-            duration: 2000,
-            render: () => (
+        const mount = setTimeout(() => {
+          auth().signInWithEmailAndPassword(form.email, form.password).then((res) => {
+            data.uid = res.user.uid;
+            data.email = res.user.email;
+            auth().currentUser.getIdTokenResult().then((res) => {
+              data.token = res.token;
+              storeAsyncData('user_session', data);
+              setForm('reset');
+              navigation.replace('MainApp');
+              dispatch({ type: globalAction.SET_LOADING, value: false });
+              toast.show({
+                placement: 'top',
+                duration: 2000,
+                render: () => (
                <ShowSuccess message="Login Successfully" />
-            ),
+                ),
+              });
+            });
+          }).catch((error) => {
+            let message;
+            if (error.code === 'auth/wrong-password') {
+              message = 'Password is invalid';
+            } else if (error.code === 'auth/user-not-found') {
+              message = 'Email not registered';
+            } else {
+              message = 'Try Again';
+            }
+            toast.show({
+              placement: 'top',
+              duration: 2000,
+              render: () => (
+                <ShowError message={message} />
+              ),
+            });
           });
-        }, 3000);
-        return () => clearTimeout(res);
+          dispatch({ type: globalAction.SET_LOADING, value: false });
+        }, 2500);
+        return () => clearTimeout(mount);
       }
-      if (form.password.length !== 6 && reg.test(form.email) === false) {
+      if (form.password.length < 6 && reg.test(form.email) === false) {
         toast.show({
           placement: 'top',
           duration: 2000,
