@@ -11,7 +11,7 @@ import { IconGlobalNative } from '../..';
 const CardNews = ({
   artist, artistFontSize, headline, headlineFontSize,
   date, dateFontSize, writer, writerFontSize, picture,
-  widthCard, widthReso, heightReso, onPress
+  widthCard, widthReso, heightReso
 }) => (
 <VStack
   width={widthCard}
@@ -106,7 +106,7 @@ const CardNews = ({
        </Text>
      </Box>
      <VStack>
-       <Pressable onPress={onPress}>
+       <Pressable onPress={() => {}}>
         {({ isHovered, isFocused, isPressed }) => (
          <Box
            style={{

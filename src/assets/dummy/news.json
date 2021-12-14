@@ -1,0 +1,34 @@
+[
+               {
+                              "id": 1,
+                              "artist": "Avril Lavigne",
+                              "headline": "Releasing new single called 'Bite' featuring Travis Barker",
+                              "writer": "BBC Radio One",
+                              "date": "Dec 14, 2021",
+                              "imageTitle": "1"
+               },
+               {
+                              "id": 2,
+                              "artist": "Bring Me The Horizon",
+                              "headline": "Shocking fans by releasing new single 'die4u'",
+                              "writer": "UK Hammer",
+                              "date": "Dec 15, 2021",
+                              "imageTitle": "2"
+               },
+               {
+                              "id": 3,
+                              "artist": "Gojira",
+                              "headline": "Gojira reach best metal album of 2021 with title 'Fortitude'",
+                              "writer": "Metal US",
+                              "date": "Dec 16, 2021",
+                              "imageTitle": "3"
+               },
+               {
+                              "id": 4,
+                              "artist": "Counterparts",
+                              "headline": "Former and lead guitaris Jesse Doreen is coming back !",
+                              "writer": "Audiotree TV",
+                              "date": "Dec 12, 2021",
+                              "imageTitle": "4"
+               }
+]

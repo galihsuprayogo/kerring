@@ -11,6 +11,7 @@ import {
   PictureStatic
 } from '../../components';
 import { globalResolution } from '../../utils';
+import { JSONNews } from '../../assets';
 
 const Home = () => {
   const heightReso = globalResolution().height;
@@ -34,50 +35,31 @@ const Home = () => {
            flex={1}
            space={widthReso * 0.02}
          >
-           <CardNews
-             widthCard={widthReso * 0.47}
-             widthReso={widthReso}
-             heightReso={heightReso}
-             artist="Avril Lavigne"
-             artistFontSize={heightReso * 0.014}
-             headline="Releasing new single called 'Bite' featuring Travis Barker"
-             headlineFontSize={heightReso * 0.019}
-             writer="BBC Radio One"
-             writerFontSize={heightReso * 0.015}
-             date="Dec 14, 2021"
-             dateFontSize={heightReso * 0.011}
-             picture={(
+           {JSONNews.map((item, index) => (
+             <CardNews
+               key={index}
+               widthCard={widthReso * 0.47}
+               widthReso={widthReso}
+               heightReso={heightReso}
+               artist={item.artist}
+               artistFontSize={heightReso * 0.014}
+               headline={item.headline}
+               headlineFontSize={heightReso * 0.019}
+               writer={item.writer}
+               writerFontSize={heightReso * 0.015}
+               date={item.date}
+               dateFontSize={heightReso * 0.011}
+               picture={(
                <PictureStatic
-                 title="1"
+                 title={item.imageTitle}
                  resizeMode="cover"
-                 alt="avril"
+                 alt={item.imageTitle}
                  height={heightReso * 0.17}
                  width="100%"
                />
-            )}
-           />
-          <CardNews
-            widthCard={widthReso * 0.47}
-            widthReso={widthReso}
-            heightReso={heightReso}
-            artist="Bring Me The Horizon"
-            artistFontSize={heightReso * 0.014}
-            headline="Shocking fans by releasing new single 'die4u'"
-            headlineFontSize={heightReso * 0.019}
-            writer="UK Hammer"
-            writerFontSize={heightReso * 0.015}
-            date="Dec 13, 2021"
-            dateFontSize={heightReso * 0.011}
-            picture={(
-              <PictureStatic
-                title="2"
-                resizeMode="cover"
-                alt="avril"
-                height={heightReso * 0.17}
-                width="100%"
-              />
-           )}
-          />
+             )}
+             />
+           ))}
          </HStack>
        </ScrollView>
      </Card>
