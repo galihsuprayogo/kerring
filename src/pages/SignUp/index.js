@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import auth from '@react-native-firebase/auth';
+import { useDispatch } from 'react-redux';
 import {
   Box,
   VStack,
-  HStack,
   Text,
-  Pressable,
   useToast
 } from 'native-base';
 import {
   ButtonGlobal,
   FormInput,
-  IconGlobal
 } from '../../components';
+import {
+  globalAction
+} from '../../redux';
 import {
   globalResolution,
   ShowError,
@@ -20,11 +21,11 @@ import {
   useForm
 } from '../../utils';
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
   const toast = useToast();
+  const dispatch = useDispatch();
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
-  const [message, setMessage] = useState('');
   const [form, setForm] = useForm({
     email: '',
     password: '',
@@ -66,29 +67,48 @@ const SignUp = () => {
           ),
         });
       } else {
-        auth()
-          .createUserWithEmailAndPassword(form.email, form.password)
-          .then((res) => {
-            console.log('User => ', res);
-          })
-          .catch((error) => {
-            if (error.code === 'auth/email-already-in-use') {
-              console.log('That email address is already in use!');
-            }
-
-            if (error.code === 'auth/invalid-email') {
-              console.log('That email address is invalid!');
-            }
-            console.error(error);
-          });
-        setForm('reset');
+        dispatch({ type: globalAction.SET_LOADING, value: true });
+        const mount = setTimeout(() => {
+          auth()
+            .createUserWithEmailAndPassword(form.email, form.password)
+            .then((res) => {
+              navigation.pop();
+              setForm('reset');
+              toast.show({
+                placement: 'top',
+                duration: 2000,
+                render: () => (
+                 <ShowSuccess message="Create new user success" />
+                ),
+              });
+            })
+            .catch((error) => {
+              let message;
+              if (error.code === 'auth/email-already-in-use') {
+                message = 'Email address is already in use';
+              } else if (error.code === 'auth/invalid-email') {
+                message = 'Email address is invalid';
+              } else {
+                message = 'Try Again';
+              }
+              toast.show({
+                placement: 'top',
+                duration: 2000,
+                render: () => (
+                <ShowError message={message} />
+                ),
+              });
+            });
+          dispatch({ type: globalAction.SET_LOADING, value: false });
+        }, 2500);
+        return () => clearTimeout(mount);
       }
       if (form.password.length < 6 && reg.test(form.email) === false) {
         toast.show({
           placement: 'top',
           duration: 2000,
           render: () => (
-                   <ShowError message="Email and password invalid" />
+              <ShowError message="Email and password invalid" />
           ),
         });
       }

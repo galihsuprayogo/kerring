@@ -3,7 +3,6 @@ import { Platform, Keyboard } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { useDispatch } from 'react-redux';
 import {
-  Box,
   VStack,
   HStack,
   Text,
@@ -31,7 +30,6 @@ const SignIn = ({ navigation }) => {
   const dispatch = useDispatch();
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
-  const [message, setMessage] = useState('');
   const [form, setForm] = useForm({ email: '', password: '' });
   const [isPassword, setIsPassword] = useState(false);
   const [isVisibleIcon, setIsVisibleIcon] = useState(false);
