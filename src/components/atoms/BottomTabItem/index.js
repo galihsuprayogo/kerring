@@ -20,7 +20,7 @@ const BottomTabItem = ({
            visible
            animate={{
              opacity: 1,
-             scale: 0.9,
+             scale: 0.7,
              transition: {
                duration: 150,
              },
@@ -38,7 +38,7 @@ const BottomTabItem = ({
           visible
           animate={{
             opacity: 1,
-            scale: 0.7,
+            scale: 0.5,
             transition: {
               duration: 150,
             },
@@ -58,7 +58,7 @@ const BottomTabItem = ({
            visible
            animate={{
              opacity: 1,
-             scale: 0.9,
+             scale: 0.7,
              transition: {
                duration: 150,
              },
@@ -76,7 +76,7 @@ const BottomTabItem = ({
             visible
             animate={{
               opacity: 1,
-              scale: 0.7,
+              scale: 0.5,
               transition: {
                 duration: 150,
               },
@@ -96,7 +96,7 @@ const BottomTabItem = ({
            visible
            animate={{
              opacity: 1,
-             scale: 0.9,
+             scale: 0.7,
              transition: {
                duration: 150,
              },
@@ -114,7 +114,7 @@ const BottomTabItem = ({
           visible
           animate={{
             opacity: 1,
-            scale: 0.7,
+            scale: 0.5,
             transition: {
               duration: 150,
             },
@@ -154,7 +154,6 @@ const BottomTabItem = ({
        <VStack
          alignItems="center"
          justifyContent="center"
-         space="1"
        >
        <IconTab />
         <Text

@@ -1,5 +1,9 @@
 import React from 'react';
-import { Text, VStack } from 'native-base';
+import {
+  Box,
+  Text,
+  VStack
+} from 'native-base';
 
 const Search = () => (
 <VStack
@@ -7,16 +11,28 @@ const Search = () => (
   alignItems="center"
   justifyContent="center"
 >
-   <Text
-     color="custom.900"
-     fontSize="md"
-     fontFamily="body"
-     fontWeight={600}
-     letterSpacing="md"
-     fontStyle="italic"
-   >
-     Search page
-   </Text>
+   <Box>
+     <Text
+       color="custom.900"
+       textAlign="center"
+       fontSize="lg"
+       fontFamily="body"
+       fontWeight={600}
+       letterSpacing="sm"
+     >
+        Search Page
+     </Text>
+     <Text
+       color="custom.900"
+       textAlign="center"
+       fontSize="xs"
+       fontFamily="body"
+       fontWeight={300}
+       letterSpacing="sm"
+     >
+        coming soon
+     </Text>
+   </Box>
 </VStack>
 );
 
