@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Input,
   Text,
   VStack
@@ -7,8 +8,10 @@ import {
 import { IconGlobalNative } from '../..';
 
 const SearchField = ({
-  labelFontSize, placeholder, width, height
-}) => (
+  labelFontSize, placeholder, width, height,
+  value, onChangeText, isVisible
+}) =>
+  (
   <VStack
     width={width}
     space="1"
@@ -23,7 +26,7 @@ const SearchField = ({
        fontWeight={600}
        letterSpacing="sm"
      >
-         Cari
+         Search News
      </Text>
      <Input
        width={width}
@@ -34,8 +37,36 @@ const SearchField = ({
        fontFamily="body"
        fontWeight={500}
        _focus={{ borderColor: 'custom.900' }}
+       value={value}
+       onChangeText={onChangeText}
+       InputLeftElement={
+        isVisible ? (
+          <Box
+            m="2"
+          >
+          <IconGlobalNative
+            title="Search-Light"
+            height={1}
+            width={1}
+            resizeMode="contain"
+          />
+          </Box>
+        )
+          : (
+         <Box
+           m="2"
+         >
+           <IconGlobalNative
+             title="Search-Grey"
+             height={1}
+             width={1}
+             resizeMode="contain"
+           />
+         </Box>
+          )
+      }
      />
   </VStack>
-);
+  );
 
 export default SearchField;

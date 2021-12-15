@@ -13,6 +13,8 @@ import {
   iconHomeInactive,
   iconSearch,
   iconSearchInactive,
+  iconSearchLight,
+  iconSearchGrey,
   iconSetting,
   iconSettingInactive
 } from '../../../assets';
@@ -115,6 +117,24 @@ const IconGlobalNative = ({
       return (
       <Image
         source={iconSearchInactive}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Search-Grey':
+      return (
+      <Image
+        source={iconSearchGrey}
+        height={height}
+        width={width}
+        resizeMode={resizeMode}
+      />
+      );
+    case 'Search-Light':
+      return (
+      <Image
+        source={iconSearchLight}
         height={height}
         width={width}
         resizeMode={resizeMode}

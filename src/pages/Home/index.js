@@ -7,8 +7,8 @@ import {
 import {
   AvatarStatic,
   Card,
-  CardMostly,
   CardNews,
+  FlatCard,
   PictureStatic
 } from '../../components';
 import { globalResolution } from '../../utils';
@@ -82,7 +82,7 @@ const Home = () => {
          >
            <VStack flex={1} space={heightReso * 0.01}>
              {JSONMostly.map((item, index) => (
-               <CardMostly
+               <FlatCard
                  key={index}
                  artist={item.artist}
                  artistFontSize={heightReso * 0.014}

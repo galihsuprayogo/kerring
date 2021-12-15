@@ -7,7 +7,7 @@ import {
   Circle
 } from 'native-base';
 
-const CardMostly = ({
+const FlatCard = ({
   artist, artistFontSize, headline, headlineFontSize,
   heightReso, widthReso, avatar
 }) => (
@@ -61,4 +61,4 @@ const CardMostly = ({
 </VStack>
 );
 
-export default CardMostly;
+export default FlatCard;

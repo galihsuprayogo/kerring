@@ -9,6 +9,8 @@ import iconSetting from './icon-setting.png';
 import iconSettingInactive from './icon-setting-inactive.png';
 import iconSearch from './icon-search.png';
 import iconSearchInactive from './icon-search-inactive.png';
+import iconSearchGrey from './icon-search-grey.png';
+import iconSearchLight from './icon-search-light.png';
 import iconHome from './icon-home.png';
 import iconHomeInactive from './icon-home-inactive.png';
 
@@ -24,6 +26,8 @@ export {
   iconSettingInactive,
   iconSearch,
   iconSearchInactive,
+  iconSearchGrey,
+  iconSearchLight,
   iconHome,
   iconHomeInactive
 };

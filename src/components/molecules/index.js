@@ -1,13 +1,13 @@
 import BottomTabNavigator from './BottomTabNavigator';
-import CardMostly from './CardMostly';
 import CardNews from './CardNews';
 import DetailNews from './DetailNews';
+import FlatCard from './FlatCard';
 import FormInput from './FormInput';
 
 export {
   BottomTabNavigator,
-  CardMostly,
   CardNews,
   DetailNews,
+  FlatCard,
   FormInput
 };
