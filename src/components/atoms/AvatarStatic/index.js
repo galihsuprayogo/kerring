@@ -3,7 +3,10 @@ import { Avatar } from 'native-base';
 import {
   avatarPicture1,
   avatarPicture2,
-  avatarPicture3
+  avatarPicture3,
+  avatarPicture4,
+  avatarPicture5,
+  avatarPicture6
 } from '../../../assets';
 
 const AvatarStatic = ({ title }) => {
@@ -26,6 +29,27 @@ const AvatarStatic = ({ title }) => {
       return (
       <Avatar
         source={avatarPicture3}
+        size="full"
+      />
+      );
+    case '4':
+      return (
+        <Avatar
+          source={avatarPicture4}
+          size="full"
+        />
+      );
+    case '5':
+      return (
+      <Avatar
+        source={avatarPicture5}
+        size="full"
+      />
+      );
+    case '6':
+      return (
+      <Avatar
+        source={avatarPicture6}
         size="full"
       />
       );

@@ -15,7 +15,6 @@ const SearchField = ({
   <VStack
     width={width}
     space="1"
-    flex={1}
     justifyContent="flex-start"
   >
      <Text

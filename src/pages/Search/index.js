@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Platform, Keyboard } from 'react-native';
+import {
+  Platform,
+  Keyboard,
+  ScrollView
+} from 'react-native';
 import {
   VStack
 } from 'native-base';
 import {
+  AvatarStatic,
+  FlatCard,
   SearchField
 } from '../../components';
 import {
   globalResolution
 } from '../../utils';
+import {
+  JSONSearch
+} from '../../assets';
 
 const Search = () => {
   const heightReso = globalResolution().height;
@@ -42,7 +51,7 @@ const Search = () => {
     flex={1}
     alignItems="center"
     paddingX={widthReso * 0.04}
-    paddingY={widthReso * 0.04}
+    paddingTop={heightReso * 0.02}
   >
     <SearchField
       width="100%"
@@ -54,6 +63,25 @@ const Search = () => {
       value={search}
       onChangeText={(value) => onChangeSearchField(value)}
     />
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <VStack
+        paddingY={heightReso * 0.02}
+        space={heightReso * 0.01}
+      >
+         {JSONSearch.map((item, index) => (
+           <FlatCard
+             key={index}
+             artist={item.artist}
+             artistFontSize={heightReso * 0.014}
+             headline={item.headline}
+             headlineFontSize={heightReso * 0.016}
+             heightReso={heightReso}
+             widthReso={widthReso}
+             avatar={(<AvatarStatic title={item.avatarTitle} />)}
+           />
+         ))}
+      </VStack>
+    </ScrollView>
   </VStack>
   );
 };
