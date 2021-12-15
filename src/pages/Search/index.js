@@ -4,36 +4,30 @@ import {
   Text,
   VStack
 } from 'native-base';
+import { SearchField } from '../../components';
+import {
+  globalResolution
+} from '../../utils';
 
-const Search = () => (
-<VStack
-  flex={1}
-  alignItems="center"
-  justifyContent="center"
->
-   <Box>
-     <Text
-       color="custom.900"
-       textAlign="center"
-       fontSize="lg"
-       fontFamily="body"
-       fontWeight={600}
-       letterSpacing="sm"
-     >
-        Search Page
-     </Text>
-     <Text
-       color="custom.900"
-       textAlign="center"
-       fontSize="xs"
-       fontFamily="body"
-       fontWeight={300}
-       letterSpacing="sm"
-     >
-        coming soon
-     </Text>
-   </Box>
-</VStack>
-);
+const Search = () => {
+  const heightReso = globalResolution().height;
+  const widthReso = globalResolution().width;
 
+  return (
+  <VStack
+    flex={1}
+    alignItems="center"
+    paddingX={widthReso * 0.04}
+    paddingY={widthReso * 0.04}
+  >
+    <SearchField
+      width="100%"
+      height={heightReso * 0.055}
+      paddingX={widthReso * 0.02}
+      labelFontSize={heightReso * 0.035}
+      placeholder="by Artist"
+    />
+  </VStack>
+  );
+};
 export default Search;

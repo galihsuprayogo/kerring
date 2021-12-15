@@ -6,6 +6,7 @@ import IconGlobal from './IconGlobal';
 import IconGlobalNative from './IconGlobalNative';
 import Loading from './Loading';
 import PictureStatic from './PictureStatic';
+import SearchField from './SearchField';
 
 export {
   AvatarStatic,
@@ -15,5 +16,6 @@ export {
   IconGlobal,
   IconGlobalNative,
   Loading,
-  PictureStatic
+  PictureStatic,
+  SearchField
 };
