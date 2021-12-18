@@ -13,7 +13,10 @@ const initialNewsReducer = {
     content: '',
     image: '',
     path: '',
-    idArtist: ''
+    idArtist: '',
+    artist: {
+      name: ''
+    }
   }],
 
 };

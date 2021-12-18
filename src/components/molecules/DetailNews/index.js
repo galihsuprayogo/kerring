@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Box,
   Text,
-  VStack
+  VStack,
+  HStack
 } from 'native-base';
 import { globalEnv } from '../../../config';
 import { Picture } from '../..';
@@ -81,7 +82,7 @@ const DetailNews = ({ route }) => {
             fontWeight={300}
             letterSpacing="sm"
           >
-              {content}
+              {`${artist} - ${content}`}
           </Text>
         </VStack>
      </VStack>

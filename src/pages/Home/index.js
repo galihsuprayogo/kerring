@@ -79,7 +79,7 @@ const Home = () => {
                  widthCard={widthReso * 0.47}
                  widthReso={widthReso}
                  heightReso={heightReso}
-                 artist={item.artist}
+                 artist={item.artist.name}
                  artistFontSize={heightReso * 0.014}
                  headline={item.headline}
                  headlineFontSize={heightReso * 0.019}
