@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   HStack,
   VStack
@@ -9,23 +10,48 @@ import {
   Card,
   CardNews,
   FlatCard,
-  PictureStatic
+  Picture,
+  Loading
 } from '../../components';
 import { globalResolution } from '../../utils';
+import { globalEnv } from '../../config';
+import {
+  postWithToken,
+  getAsyncData,
+  globalUrl
+} from '../../services';
+import { globalAction } from '../../redux';
 import {
   JSONMostly,
-  JSONNews
 } from '../../assets';
 
 const Home = () => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
+  const dispatch = useDispatch();
+  const newState = useSelector((state) => state.newsReducer);
+
+  useEffect(() => {
+    const unmount = setTimeout(async () => {
+      const user = await getAsyncData('user_session');
+      let data;
+      const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
+      if (response.status === 200) {
+        dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
+      }
+    }, 2000);
+    return () => clearTimeout(unmount);
+  }, []);
+
   return (
-   <VStack
-     flex={1}
-     alignItems="center"
-     paddingX={widthReso * 0.02}
-   >
+    newState.new[0].id === '' || newState.new[0].id === undefined ? (
+      <Loading />
+    ) : (
+    <VStack
+      flex={1}
+      alignItems="center"
+      paddingX={widthReso * 0.02}
+    >
      <ScrollView
        showsVerticalScrollIndicator={false}
      >
@@ -46,7 +72,7 @@ const Home = () => {
                flex={1}
                space={widthReso * 0.02}
              >
-             {JSONNews.map((item, index) => (
+             {newState.new.map((item, index) => (
                <CardNews
                  key={index}
                  idNews={item.id}
@@ -60,13 +86,14 @@ const Home = () => {
                  writer={item.writer}
                  writerFontSize={heightReso * 0.015}
                  date={item.date}
+                 image={item.image}
+                 content={item.content}
                  dateFontSize={heightReso * 0.011}
-                 imageTitle={item.imageTitle}
                  picture={(
-               <PictureStatic
-                 title={item.imageTitle}
+               <Picture
+                 uri={{ uri: `${globalEnv.URI_IMAGE}/images/${item.image}` }}
                  resizeMode="cover"
-                 alt={item.imageTitle}
+                 alt={item.image}
                  height={heightReso * 0.17}
                  width="100%"
                />
@@ -97,7 +124,9 @@ const Home = () => {
          </Card>
        </VStack>
      </ScrollView>
-   </VStack>
+    </VStack>
+    )
   );
 };
+
 export default Home;

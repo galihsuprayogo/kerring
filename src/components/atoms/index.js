@@ -5,7 +5,7 @@ import Card from './Card';
 import IconGlobal from './IconGlobal';
 import IconGlobalNative from './IconGlobalNative';
 import Loading from './Loading';
-import PictureStatic from './PictureStatic';
+import Picture from './Picture';
 import SearchField from './SearchField';
 
 export {
@@ -16,6 +16,6 @@ export {
   IconGlobal,
   IconGlobalNative,
   Loading,
-  PictureStatic,
+  Picture,
   SearchField
 };

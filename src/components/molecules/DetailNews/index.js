@@ -4,13 +4,14 @@ import {
   Text,
   VStack
 } from 'native-base';
-import { PictureStatic } from '../..';
-import { JSONDetailNews } from '../../../assets';
+import { globalEnv } from '../../../config';
+import { Picture } from '../..';
 import { globalResolution } from '../../../utils';
 
 const DetailNews = ({ route }) => {
   const {
-    idNews, artist, headline, writer, date
+    idNews, artist, headline,
+    writer, date, content, image
   } = route.params.route;
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
@@ -63,33 +64,25 @@ const DetailNews = ({ route }) => {
          </Text>
        </Box>
         <VStack width="100%">
-          <PictureStatic
-            title={`${idNews}`}
-            alt={`${idNews}`}
+          <Picture
+            uri={{ uri: `${globalEnv.URI_IMAGE}/images/${image}` }}
+            alt={image}
             width="100%"
             resizeMode="cover"
             height={heightReso * 0.3}
           />
         </VStack>
         <VStack>
-          {
-          JSONDetailNews.map((item, index) => {
-            if (item.idNews === `${idNews}`) {
-              return (
-                <Text
-                  color="custom.100"
-                  textAlign="left"
-                  fontSize={heightReso * 0.017}
-                  fontFamily="body"
-                  fontWeight={300}
-                  letterSpacing="sm"
-                >
-                  {item.content}
-                </Text>
-              );
-            }
-          })
-         }
+          <Text
+            color="custom.100"
+            textAlign="left"
+            fontSize={heightReso * 0.017}
+            fontFamily="body"
+            fontWeight={300}
+            letterSpacing="sm"
+          >
+              {content}
+          </Text>
         </VStack>
      </VStack>
    </VStack>

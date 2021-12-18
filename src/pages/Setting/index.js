@@ -6,7 +6,12 @@ import {
 import { useDispatch } from 'react-redux';
 import auth from '@react-native-firebase/auth';
 import { ButtonGlobal } from '../../components';
-import { removeAsyncData } from '../../services';
+import {
+  removeAsyncData,
+  getAsyncData,
+  postWithToken,
+  globalUrl
+} from '../../services';
 import { globalAction } from '../../redux';
 import {
   globalResolution,
@@ -22,26 +27,42 @@ const Setting = ({ navigation }) => {
 
   const onSignOut = () => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
-    const res = setTimeout(() => {
-      auth().signOut().then(() => {
-        removeAsyncData('user_session');
-        navigation.replace('SignIn');
+    const res = setTimeout(async () => {
+      const session = await getAsyncData('user_session');
+      const data = {
+        uid: session.uid
+      };
+      const response = await postWithToken(globalUrl.URL_SIGN_OUT, data, session.token);
+      if (response.status === 200) {
+        console.log(response);
+        auth().signOut().then(() => {
+          removeAsyncData('user_session');
+          navigation.replace('SignIn');
+          toast.show({
+            placement: 'top',
+            duration: 2000,
+            render: () => (
+           <ShowSuccess message={response.data.message} />
+            ),
+          });
+        }).catch((error) => {
+          toast.show({
+            placement: 'top',
+            duration: 2000,
+            render: () => (
+             <ShowError message="Try Again" />
+            ),
+          });
+        });
+      } else {
         toast.show({
           placement: 'top',
           duration: 2000,
           render: () => (
-         <ShowSuccess message="Logout Successfully" />
+           <ShowError message={response.data.message} />
           ),
         });
-      }).catch((error) => {
-        toast.show({
-          placement: 'top',
-          duration: 2000,
-          render: () => (
-           <ShowError message="Try Again" />
-          ),
-        });
-      });
+      }
       dispatch({ type: globalAction.SET_LOADING, value: false });
     }, 2500);
     return () => clearTimeout(res);

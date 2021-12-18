@@ -83,6 +83,10 @@ const SignIn = ({ navigation }) => {
             data.email = res.user.email;
             auth().currentUser.getIdTokenResult().then((res) => {
               data.token = res.token;
+              console.log('uid');
+              console.log(data.uid);
+              console.log('token');
+              console.log(data.token);
               storeAsyncData('user_session', data);
               setForm('reset');
               navigation.replace('MainApp');

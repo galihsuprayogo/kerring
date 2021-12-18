@@ -14,7 +14,7 @@ import { globalAction } from '../../../redux';
 const CardNews = ({
   artist, artistFontSize, headline, headlineFontSize,
   date, dateFontSize, writer, writerFontSize, picture,
-  widthCard, widthReso, heightReso, idNews, imageTitle
+  widthCard, widthReso, heightReso, idNews, image, content
 }) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -29,7 +29,9 @@ const CardNews = ({
             artist,
             headline,
             writer,
-            date
+            date,
+            content,
+            image
           }
         }
       );
