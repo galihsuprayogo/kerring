@@ -18,7 +18,19 @@ const initialNewsReducer = {
       name: ''
     }
   }],
-
+  mostly: [{
+    id: '',
+    headline: '',
+    writer: '',
+    date: '',
+    content: '',
+    image: '',
+    path: '',
+    idArtist: '',
+    artist: {
+      name: ''
+    }
+  }]
 };
 
 export const loadingReducer = (state = initialLoadingState, action) => {
@@ -36,6 +48,12 @@ export const newsReducer = (state = initialNewsReducer, action) => {
     return {
       ...state,
       new: action.value
+    };
+  }
+  if (action.type === globalAction.SET_MOSTLY) {
+    return {
+      ...state,
+      mostly: action.value
     };
   }
   return state;

@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Platform,
   Keyboard,
   ScrollView
 } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   VStack,
-  Text
 } from 'native-base';
 import {
   AvatarGlobal,
   FlatCard,
   SearchField,
-  Loading
+  Loading,
 } from '../../components';
 import { globalEnv } from '../../config';
 import {
@@ -26,7 +25,7 @@ import {
   globalResolution
 } from '../../utils';
 
-const Search = () => {
+const Search = ({ navigation }) => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
   const dispatch = useDispatch();
@@ -75,13 +74,34 @@ const Search = () => {
     setMatchData(arr);
   };
 
+  const onDetailNews = (idNews, artist, headline, writer, date, content, image) => {
+    dispatch({ type: globalAction.SET_LOADING, value: true });
+    const mount = setTimeout(() => {
+      navigation.push('Detail',
+        {
+          route: {
+            idNews,
+            artist,
+            headline,
+            writer,
+            date,
+            content,
+            image
+          }
+        }
+      );
+      dispatch({ type: globalAction.SET_LOADING, value: false });
+    }, 2000);
+    return () => clearTimeout(mount);
+  };
+
   return (
     newState.new[0].id === '' || newState.new[0].id === undefined ? (
       <Loading />
     ) : (
         <VStack
           flex={1}
-          alignItems="center"
+          width="100%"
           paddingX={widthReso * 0.04}
           paddingTop={heightReso * 0.02}
         >
@@ -97,6 +117,8 @@ const Search = () => {
      />
      <ScrollView showsVerticalScrollIndicator={false}>
       <VStack
+        flex={1}
+        width="100%"
         paddingY={heightReso * 0.02}
         space={heightReso * 0.01}
       >
@@ -117,6 +139,15 @@ const Search = () => {
                    uri={{ uri: `${globalEnv.URI_IMAGE}/images/${item.image}` }}
                  />
                  )}
+                onPress={() =>
+                  onDetailNews(
+                    item.idNews,
+                    item.artist.name,
+                    item.headline,
+                    item.writer,
+                    item.date,
+                    item.content,
+                    item.image)}
               />
             ))
           ) : (
@@ -135,6 +166,15 @@ const Search = () => {
                   uri={{ uri: `${globalEnv.URI_IMAGE}/images/${item.image}` }}
                 />
              )}
+                onPress={() =>
+                  onDetailNews(
+                    item.idNews,
+                    item.artist.name,
+                    item.headline,
+                    item.writer,
+                    item.date,
+                    item.content,
+                    item.image)}
               />
             ))
           )
@@ -155,6 +195,15 @@ const Search = () => {
                uri={{ uri: `${globalEnv.URI_IMAGE}/images/${item.image}` }}
              />
              )}
+            onPress={() =>
+              onDetailNews(
+                item.idNews,
+                item.artist.name,
+                item.headline,
+                item.writer,
+                item.date,
+                item.content,
+                item.image)}
           />
           ))}
       </VStack>

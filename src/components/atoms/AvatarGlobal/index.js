@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import { Image } from 'react-native';
+import React from 'react';
 import { Avatar } from 'native-base';
-import { globalEnv } from '../../../config';
 import {
   avatarDefault,
 } from '../../../assets';

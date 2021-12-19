@@ -4,12 +4,14 @@ import {
   HStack,
   VStack,
   Text,
-  Circle
+  Circle,
+  Pressable
 } from 'native-base';
+import { IconGlobalNative } from '../..';
 
 const FlatCard = ({
   artist, artistFontSize, headline, headlineFontSize,
-  heightReso, widthReso, avatar
+  heightReso, widthReso, avatar, onPress
 }) => (
 <VStack
   width="100%"
@@ -23,7 +25,10 @@ const FlatCard = ({
      justifyContent="space-between"
      alignItems="center"
    >
-     <HStack space={widthReso * 0.02}>
+     <HStack
+       space={widthReso * 0.02}
+       flex={1}
+     >
        <Box>
          <Circle
            size={heightReso * 0.07}
@@ -57,6 +62,31 @@ const FlatCard = ({
        </Box>
        </VStack>
      </HStack>
+
+     <VStack>
+       <Pressable
+         onPress={onPress}
+       >
+        {({ isHovered, isFocused, isPressed }) => (
+         <Box
+           style={{
+             transform: [
+               {
+                 scale: isPressed ? 0.8 : 1,
+               },
+             ],
+           }}
+         >
+           <IconGlobalNative
+             title="forward"
+             height={1}
+             width={1}
+             resizeMode="contain"
+           />
+         </Box>
+        )}
+       </Pressable>
+     </VStack>
    </HStack>
 </VStack>
 );

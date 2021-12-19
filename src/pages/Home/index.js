@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   HStack,
-  VStack
+  VStack,
 } from 'native-base';
 import {
   AvatarGlobal,
@@ -11,7 +11,7 @@ import {
   CardNews,
   FlatCard,
   Picture,
-  Loading
+  Loading,
 } from '../../components';
 import { globalResolution } from '../../utils';
 import { globalEnv } from '../../config';
@@ -21,11 +21,8 @@ import {
   globalUrl
 } from '../../services';
 import { globalAction } from '../../redux';
-import {
-  JSONMostly,
-} from '../../assets';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
   const dispatch = useDispatch();
@@ -38,15 +35,40 @@ const Home = () => {
       const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
       if (response.status === 200) {
         dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
+        dispatch({ type: globalAction.SET_MOSTLY, value: response.data.data });
       }
     }, 2000);
     return () => clearTimeout(unmount);
   }, []);
 
+  const onDetailNews = (idNews, artist, headline, writer, date, content, image) => {
+    dispatch({ type: globalAction.SET_LOADING, value: true });
+    const mount = setTimeout(() => {
+      navigation.push('Detail',
+        {
+          route: {
+            idNews,
+            artist,
+            headline,
+            writer,
+            date,
+            content,
+            image
+          }
+        }
+      );
+      dispatch({ type: globalAction.SET_LOADING, value: false });
+    }, 2000);
+    return () => clearTimeout(mount);
+  };
+
   return (
-    newState.new[0].id === '' || newState.new[0].id === undefined ? (
+    newState.new[0].id === ''
+    || newState.new[0].id === undefined
+    || newState.mostly[0].id === ''
+    || newState.mostly[0].id === undefined ? (
       <Loading />
-    ) : (
+      ) : (
     <VStack
       flex={1}
       alignItems="center"
@@ -108,16 +130,30 @@ const Home = () => {
            fontSize={heightReso * 0.015}
          >
            <VStack flex={1} space={heightReso * 0.01}>
-             {JSONMostly.map((item, index) => (
+             {newState.mostly.map((item, index) => (
                <FlatCard
                  key={index}
-                 artist={item.artist}
+                 artist={item.artist.name}
                  artistFontSize={heightReso * 0.014}
                  headline={item.headline}
                  headlineFontSize={heightReso * 0.016}
                  heightReso={heightReso}
                  widthReso={widthReso}
-                 avatar={(<AvatarGlobal />)}
+                 avatar={(
+                  <AvatarGlobal
+                    title="non-empty"
+                    uri={{ uri: `${globalEnv.URI_IMAGE}/images/${item.image}` }}
+                  />
+                  )}
+                 onPress={() =>
+                   onDetailNews(
+                     item.idNews,
+                     item.artist.name,
+                     item.headline,
+                     item.writer,
+                     item.date,
+                     item.content,
+                     item.image)}
                />
              ))}
            </VStack>
@@ -125,7 +161,7 @@ const Home = () => {
        </VStack>
      </ScrollView>
     </VStack>
-    )
+      )
   );
 };
 
