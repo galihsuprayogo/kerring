@@ -6,7 +6,7 @@ import {
   VStack
 } from 'native-base';
 import {
-  AvatarStatic,
+  AvatarGlobal,
   Card,
   CardNews,
   FlatCard,
@@ -117,7 +117,7 @@ const Home = () => {
                  headlineFontSize={heightReso * 0.016}
                  heightReso={heightReso}
                  widthReso={widthReso}
-                 avatar={(<AvatarStatic title={item.avatarTitle} />)}
+                 avatar={(<AvatarGlobal />)}
                />
              ))}
            </VStack>

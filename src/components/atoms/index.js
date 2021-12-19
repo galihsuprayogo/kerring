@@ -1,4 +1,4 @@
-import AvatarStatic from './AvatarStatic';
+import AvatarGlobal from './AvatarGlobal';
 import BottomTabItem from './BottomTabItem';
 import ButtonGlobal from './ButtonGlobal';
 import Card from './Card';
@@ -9,7 +9,7 @@ import Picture from './Picture';
 import SearchField from './SearchField';
 
 export {
-  AvatarStatic,
+  AvatarGlobal,
   BottomTabItem,
   ButtonGlobal,
   Card,
