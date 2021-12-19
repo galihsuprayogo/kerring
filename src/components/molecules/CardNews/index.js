@@ -4,12 +4,15 @@ import {
   HStack,
   Pressable,
   VStack,
-  Text
+  Text,
+  useToast
 } from 'native-base';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { getAsyncData, postWithToken, globalUrl } from '../../../services';
 import { IconGlobalNative } from '../..';
 import { globalAction } from '../../../redux';
+import { ShowError } from '../../../utils';
 
 const CardNews = ({
   artist, artistFontSize, headline, headlineFontSize,
@@ -18,23 +21,38 @@ const CardNews = ({
 }) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const toast = useToast();
 
   const onDetail = (idNews, artist, headline, writer, date) => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
-    const mount = setTimeout(() => {
-      navigation.push('Detail',
-        {
-          route: {
-            idNews,
-            artist,
-            headline,
-            writer,
-            date,
-            content,
-            image
-          }
-        }
-      );
+    const mount = setTimeout(async () => {
+      const user = await getAsyncData('user_session');
+      const data = {
+        idNews
+      };
+      const response = await postWithToken(globalUrl.URL_NEWS_UPDATE_READ, data, user.token);
+      if (response.status === 200) {
+        navigation.push('Detail',
+          {
+            route: {
+              idNews,
+              artist,
+              headline,
+              writer,
+              date,
+              content,
+              image
+            }
+          });
+      } else {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message={response.data.message} />
+          ),
+        });
+      }
       dispatch({ type: globalAction.SET_LOADING, value: false });
     }, 2000);
     return () => clearTimeout(mount);

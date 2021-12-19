@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   HStack,
   VStack,
+  useToast
 } from 'native-base';
 import {
   AvatarGlobal,
@@ -13,7 +14,7 @@ import {
   Picture,
   Loading,
 } from '../../components';
-import { globalResolution } from '../../utils';
+import { globalResolution, ShowError } from '../../utils';
 import { globalEnv } from '../../config';
 import {
   postWithToken,
@@ -26,37 +27,56 @@ const Home = ({ navigation }) => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
   const dispatch = useDispatch();
+  const toast = useToast();
   const newState = useSelector((state) => state.newsReducer);
 
   useEffect(() => {
-    const unmount = setTimeout(async () => {
-      const user = await getAsyncData('user_session');
-      let data;
-      const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
-      if (response.status === 200) {
-        dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
-        dispatch({ type: globalAction.SET_MOSTLY, value: response.data.data });
-      }
-    }, 2000);
+    const unmount = navigation.addListener('focus', () => {
+      setTimeout(async () => {
+        const user = await getAsyncData('user_session');
+        let data;
+        const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
+        const read = await postWithToken(globalUrl.URL_NEWS_ALL_READ, data, user.token);
+        if (response.status === 200) {
+          dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
+          dispatch({ type: globalAction.SET_MOSTLY, value: read.data.data });
+        }
+      }, 2000);
+    });
     return () => clearTimeout(unmount);
-  }, []);
+  }, [navigation]);
 
   const onDetailNews = (idNews, artist, headline, writer, date, content, image) => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
-    const mount = setTimeout(() => {
-      navigation.push('Detail',
-        {
-          route: {
-            idNews,
-            artist,
-            headline,
-            writer,
-            date,
-            content,
-            image
+    const mount = setTimeout(async () => {
+      const user = await getAsyncData('user_session');
+      const data = {
+        idNews
+      };
+      const response = await postWithToken(globalUrl.URL_NEWS_UPDATE_READ, data, user.token);
+      if (response.status === 200) {
+        navigation.push('Detail',
+          {
+            route: {
+              idNews,
+              artist,
+              headline,
+              writer,
+              date,
+              content,
+              image
+            }
           }
-        }
-      );
+        );
+      } else {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message={response.data.message} />
+          ),
+        });
+      }
       dispatch({ type: globalAction.SET_LOADING, value: false });
     }, 2000);
     return () => clearTimeout(mount);
@@ -147,7 +167,7 @@ const Home = ({ navigation }) => {
                   )}
                  onPress={() =>
                    onDetailNews(
-                     item.idNews,
+                     item.id,
                      item.artist.name,
                      item.headline,
                      item.writer,

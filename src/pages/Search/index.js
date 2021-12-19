@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   Platform,
   Keyboard,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   VStack,
+  useToast
 } from 'native-base';
 import {
   AvatarGlobal,
@@ -22,13 +23,15 @@ import {
 } from '../../services';
 import { globalAction } from '../../redux';
 import {
-  globalResolution
+  globalResolution,
+  ShowError
 } from '../../utils';
 
 const Search = ({ navigation }) => {
   const heightReso = globalResolution().height;
   const widthReso = globalResolution().width;
   const dispatch = useDispatch();
+  const toast = useToast();
   const newState = useSelector((state) => state.newsReducer);
   const [search, setSearch] = useState('');
   const [matchData, setMatchData] = useState([]);
@@ -76,20 +79,35 @@ const Search = ({ navigation }) => {
 
   const onDetailNews = (idNews, artist, headline, writer, date, content, image) => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
-    const mount = setTimeout(() => {
-      navigation.push('Detail',
-        {
-          route: {
-            idNews,
-            artist,
-            headline,
-            writer,
-            date,
-            content,
-            image
+    const mount = setTimeout(async () => {
+      const user = await getAsyncData('user_session');
+      const data = {
+        idNews
+      };
+      const response = await postWithToken(globalUrl.URL_NEWS_UPDATE_READ, data, user.token);
+      if (response.status === 200) {
+        navigation.push('Detail',
+          {
+            route: {
+              idNews,
+              artist,
+              headline,
+              writer,
+              date,
+              content,
+              image
+            }
           }
-        }
-      );
+        );
+      } else {
+        toast.show({
+          placement: 'top',
+          duration: 2000,
+          render: () => (
+            <ShowError message={response.data.message} />
+          ),
+        });
+      }
       dispatch({ type: globalAction.SET_LOADING, value: false });
     }, 2000);
     return () => clearTimeout(mount);
@@ -141,7 +159,7 @@ const Search = ({ navigation }) => {
                  )}
                 onPress={() =>
                   onDetailNews(
-                    item.idNews,
+                    item.id,
                     item.artist.name,
                     item.headline,
                     item.writer,
@@ -168,7 +186,7 @@ const Search = ({ navigation }) => {
              )}
                 onPress={() =>
                   onDetailNews(
-                    item.idNews,
+                    item.id,
                     item.artist.name,
                     item.headline,
                     item.writer,
@@ -197,7 +215,7 @@ const Search = ({ navigation }) => {
              )}
             onPress={() =>
               onDetailNews(
-                item.idNews,
+                item.id,
                 item.artist.name,
                 item.headline,
                 item.writer,
