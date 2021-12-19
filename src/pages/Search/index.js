@@ -36,18 +36,21 @@ const Search = ({ navigation }) => {
   const [search, setSearch] = useState('');
   const [matchData, setMatchData] = useState([]);
   const [isVisibleKeyboard, setIsVisibleKeyboard] = useState(false);
+  const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
-    const unmount = setTimeout(async () => {
-      const user = await getAsyncData('user_session');
-      let data;
-      const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
-      if (response.status === 200) {
-        dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
-      }
-    }, 2000);
+    const unmount = navigation.addListener('focus', () => {
+      setTimeout(async () => {
+        const user = await getAsyncData('user_session');
+        let data;
+        const response = await postWithToken(globalUrl.URL_NEWS_ALL, data, user.token);
+        if (response.status === 200) {
+          dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
+        }
+      }, 500);
+    });
     return () => clearTimeout(unmount);
-  }, []);
+  }, [triggered, setTriggered, navigation]);
 
   useEffect(() => {
     let keyboardEventListeners;
@@ -99,6 +102,7 @@ const Search = ({ navigation }) => {
             }
           }
         );
+        setTriggered(true);
       } else {
         toast.show({
           placement: 'top',

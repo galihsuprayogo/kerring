@@ -30,12 +30,7 @@ const FlatCard = ({
        flex={1}
      >
        <Box>
-         <Circle
-           size={heightReso * 0.07}
-           bg="custom.900"
-         >
            {avatar}
-         </Circle>
        </Box>
        <VStack flex={1}>
        <Box>

@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const toast = useToast();
   const newState = useSelector((state) => state.newsReducer);
+  const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
     const unmount = navigation.addListener('focus', () => {
@@ -41,10 +42,10 @@ const Home = ({ navigation }) => {
           dispatch({ type: globalAction.SET_NEWS, value: response.data.data });
           dispatch({ type: globalAction.SET_MOSTLY, value: read.data.data });
         }
-      }, 2000);
+      }, 500);
     });
     return () => clearTimeout(unmount);
-  }, [navigation]);
+  }, [triggered, setTriggered, navigation]);
 
   const onDetailNews = (idNews, artist, headline, writer, date, content, image) => {
     dispatch({ type: globalAction.SET_LOADING, value: true });
@@ -68,6 +69,7 @@ const Home = ({ navigation }) => {
             }
           }
         );
+        setTriggered(true);
       } else {
         toast.show({
           placement: 'top',
